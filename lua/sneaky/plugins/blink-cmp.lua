@@ -20,6 +20,7 @@ return {
     keymap = { 
 			preset = 'default',
 			["<Tab>"] = {function(cmp) if cmp.is_visible() then return cmp.select_next() end end, 'fallback'},
+			["<S-Tab>"] = {function(cmp) if cmp.is_visible() then return cmp.select_prev() end end, 'fallback'},
       ["<CR>"] = {
         function(cmp)
           if cmp.is_visible() then
@@ -38,7 +39,7 @@ return {
 			["<A-8>"] = {function(cmp) cmp.accept({ index = 8 }) end},
 			["<A-9>"] = {function(cmp) cmp.accept({ index = 9 }) end}
 		},
-	
+
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
       -- Useful for when your theme doesn't support blink.cmp
