@@ -15,12 +15,12 @@ return {
 	},
 	{
 		'neovim/nvim-lspconfig',
-		dependencies = { 'saghen/blink.cmp' },
-
 		-- example using `opts` for defining servers
 		opts = {
 			servers = {
-				lua_ls = {}
+				lua_ls = {},
+				pylsp = {},
+				rust_analyzer = {},
 			}
 		},
 		config = function(_, opts)
