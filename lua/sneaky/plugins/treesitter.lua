@@ -13,9 +13,9 @@ return {
 			end
 
 			configs.setup({
-				ensure_installed = {"lua", "html", "css", "php", "python"},
+				ensure_installed = {"lua", "html", "css", "php", "python", "dart", "javascript"},
 				sync_intall = false,
-				highlight = {enable = true},
+				highlight = {enable = true, additional_vim_regex_highlighting = false},
 				indent = {enable = true}
 			})
 		end

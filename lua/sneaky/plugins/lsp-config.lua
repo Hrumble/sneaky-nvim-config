@@ -9,7 +9,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = {"lua_ls", "pylsp", "rust_analyzer"}
+				ensure_installed = {"lua_ls", "pylsp", "rust_analyzer", "ast_grep"}
 			})
 		end
 	},
@@ -21,6 +21,8 @@ return {
 				lua_ls = {},
 				pylsp = {},
 				rust_analyzer = {},
+				ast_grep = {},
+				dartls = {},
 			}
 		},
 		config = function(_, opts)
