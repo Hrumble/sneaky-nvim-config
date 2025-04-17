@@ -19,13 +19,13 @@ return {
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				dart = { "dart_format" },
+				dart = { },
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<S-A-f>", function()
 			conform.format({
 				lsp_fallback = true,
-				async = false,
+				async = true,
 				timeout_ms = 500,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
