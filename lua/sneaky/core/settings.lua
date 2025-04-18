@@ -4,6 +4,7 @@ vim.cmd("set number") -- just show the line numbers
 local tab_size = 2
 vim.o.tabstop = tab_size
 vim.o.shiftwidth = tab_size
+vim.wo.relativenumber = true
 
 -- Sets up term
 if vim.fn.has("win32") == 1 then

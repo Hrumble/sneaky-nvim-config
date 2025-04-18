@@ -9,6 +9,41 @@ This **readme** file is mainly for me, as I would just like to not lose my confi
 So, if you're here for a nvim tutorial or an indepth guide, I can assure you this is very much the wrong place to be, you will not understand anything, and I will be wrong.
 rather check out [typecraft_dev](https://www.youtube.com/@typecraft_dev) which has a very useful playlist on getting started with nvim.
 
+## Installation
+
+### Linux
+On linux, it's pretty straightforward, simply clone the repository and move it to your user config:
+```sh
+git clone https://github.com/Hrumble/sneaky-nvim-config ~/.config/nvim
+```
+### Windows
+On windows, it's a bit more complicated:
+
+Firstly, download `clang` either via [LLVM](https://releases.llvm.org/) (but that would require you installing the standard C libraries), or use [MSYS2](https://www.msys2.org/), and install it.
+Once installed launch mingw64 and type in:
+```sh
+pacman -Syu
+```
+
+Restart the terminal, then:
+```sh
+pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-clang
+
+```
+Inside your *MSYS2 Installation directory* you should find a `mingw64/bin/` folder, add that to path, then you're good to go.
+
+All that's left is cloning the repo and adding it to your nvim config directory, which is usually at `%LOCALAPPDATA%/nvim/`.
+
+*on pwsh*
+```
+git clone https://github.com/Hrumble/sneaky-nvim-config $ENV:LOCALAPPDATA/nvim/
+```
+
+*on cmd*
+```
+git clone https://github.com/Hrumble/sneaky-nvim-config %LOCALAPPDATA%/nvim/
+```
+
 ## Lazy package manager
 
 First off, the entire config is built on [Lazy](https://github.com/folke/lazy.nvim) which is a package manager for vim.
@@ -49,3 +84,5 @@ return {
     end
 }
 ```
+
+
