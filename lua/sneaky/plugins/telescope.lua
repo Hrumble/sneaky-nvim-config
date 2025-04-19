@@ -3,8 +3,6 @@ return {
 		'nvim-telescope/telescope.nvim', tag = '0.1.8',
 					dependencies = { 'nvim-lua/plenary.nvim' },
 		config = function()
-			vim.cmd("nnoremap ff <cmd>Telescope find_files<cr><Esc>")
-			vim.cmd("nnoremap fg <cmd>Telescope live_grep<cr>")
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
 
