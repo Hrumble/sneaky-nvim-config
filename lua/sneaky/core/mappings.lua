@@ -19,6 +19,7 @@ keymap.set("n", "<Leader>rr", "<cmd>source<cr>")
 keymap.set("n", "<Leader>tt", "<cmd>Telescope colorscheme<cr>")
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>")
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>")
+keymap.set('n', '<C-n>', '<cmd>Neotree toggle<cr>')
 
 -- Term keymaps
 vim.keymap.set({ "t", "n" }, "<A-t>", "<cmd>ToggleTermToggleAll<cr>")

@@ -8,6 +8,7 @@ return {
 
 			telescope.setup({
 				defaults = {
+					layout_stategy = 'vertical',
 					mappings = {
 						i = {
 							["<A-h>"] = actions.select_horizontal,
