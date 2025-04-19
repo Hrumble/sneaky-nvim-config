@@ -23,12 +23,12 @@ keymap.set('n', '<C-n>', '<cmd>Neotree toggle<cr>')
 
 -- Term keymaps
 vim.keymap.set({ "t", "n" }, "<A-t>", "<cmd>ToggleTermToggleAll<cr>")
-vim.keymap.set({ "t", "n" }, "<A-1>", "<cmd>1ToggleTerm direction=vertical size=100<cr>")
-vim.keymap.set({ "t", "n" }, "<A-2>", "<cmd>2ToggleTerm direction=vertical size=100<cr>")
-vim.keymap.set({ "t", "n" }, "<A-3>", "<cmd>3ToggleTerm direction=vertical size=100<cr>")
-vim.keymap.set({ "t", "n" }, "<A-4>", "<cmd>4ToggleTerm direction=vertical size=100<cr>")
-vim.keymap.set({ "t", "n" }, "<A-5>", "<cmd>5ToggleTerm direction=vertical size=100<cr>")
-vim.keymap.set({ "t", "n" }, "<A-6>", "<cmd>6ToggleTerm direction=vertical size=100<cr>")
+vim.keymap.set({ "t", "n" }, "<A-1>", "<cmd>1ToggleTerm direction=vertical size=100 name=1<cr>")
+vim.keymap.set({ "t", "n" }, "<A-2>", "<cmd>2ToggleTerm direction=vertical size=100 name=2<cr>")
+vim.keymap.set({ "t", "n" }, "<A-3>", "<cmd>3ToggleTerm direction=vertical size=100 name=3<cr>")
+vim.keymap.set({ "t", "n" }, "<A-4>", "<cmd>4ToggleTerm direction=vertical size=100 name=4<cr>")
+vim.keymap.set({ "t", "n" }, "<A-5>", "<cmd>5ToggleTerm direction=vertical size=100 name=5<cr>")
+vim.keymap.set({ "t", "n" }, "<A-6>", "<cmd>6ToggleTerm direction=vertical size=100 name=6<cr>")
 vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
 
 -- Sets y to copy to clipboard

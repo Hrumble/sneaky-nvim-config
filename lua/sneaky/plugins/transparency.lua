@@ -31,9 +31,11 @@ return {
 				"EndOfBuffer",
 			},
 			extra_groups = {
+				-- Sets plugins to be transparent (specifies their highlight groups to have no bg)
 				"NeoTreeNormal",
 				"NeoTreeNormalNC",
 				"NormalFloat",
+				"TelescopeNormal"
 			},
 		})
 		vim.cmd("TransparentEnable")
