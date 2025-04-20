@@ -19,7 +19,7 @@ return {
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				dart = { },
+				dart = {},
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<S-A-f>", function()
