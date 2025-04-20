@@ -13,13 +13,15 @@ keymap.set({ "n", "t" }, "<A-l>", "<C-w>l")
 keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { noremap = true, silent = true })
 
 -- maps to reload nvim conf
-keymap.set("n", "<Leader>rr", "<cmd>source<cr>")
+keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 
 -- QOL mappings
 keymap.set("n", "<Leader>tt", "<cmd>Telescope colorscheme<cr>")
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>")
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>")
 keymap.set('n', '<C-n>', '<cmd>Neotree toggle<cr>')
+keymap.set('n', '<Leader>xx', '<cmd>Trouble diagnostics toggle focus=true<cr>') -- Opens trouble 
+keymap.set('n', '<Leader>xc', '<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>') -- Opens trouble for current buffer only
 
 -- Term keymaps
 vim.keymap.set({ "t", "n" }, "<A-t>", "<cmd>ToggleTermToggleAll<cr>")
