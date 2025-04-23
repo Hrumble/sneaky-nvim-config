@@ -1,19 +1,19 @@
 return {
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.8',
-					dependencies = { 'nvim-lua/plenary.nvim' },
+		'nvim-telescope/telescope.nvim', 
+		tag = '0.1.8',
+		dependencies = { 'nvim-lua/plenary.nvim' },
 		config = function()
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
-
 			telescope.setup({
 				defaults = {
 					layout_stategy = 'vertical',
 					mappings = {
 						i = {
 							["<A-h>"] = actions.select_horizontal,
-							["<A-v>"] = actions.select_vertical
-						},
+							["<A-v>"] = actions.select_vertical,
+					},
 						n = {
 							["<A-h>"] = actions.select_horizontal,
 							["<A-v>"] = actions.select_vertical

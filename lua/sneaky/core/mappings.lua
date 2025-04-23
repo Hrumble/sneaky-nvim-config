@@ -20,14 +20,15 @@ keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse availa
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files with telescope
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>") -- live grep
 keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>") -- Toggles neotree
+keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 
 -- Trouble
 keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>") -- Opens trouble
 keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only
 
 -- Barbar tab manager
-keymap.set('n', "<Leader>b<Tab>", "<cmd>BufferNext<cr>")
-keymap.set('n', "<Leader>b<S-Tab>", "<cmd>BufferPrevious<cr>")
+keymap.set('n', "<Leader><Tab>", "<cmd>BufferNext<cr>")
+keymap.set('n', "<Leader><S-Tab>", "<cmd>BufferPrevious<cr>")
 keymap.set('n', "<Leader>bc", "<cmd>BufferClose<cr>")
 keymap.set('n', "<Leader>b1", "<cmd>BufferGoto 1<cr>")
 keymap.set('n', "<Leader>b2", "<cmd>BufferGoto 2<cr>")
