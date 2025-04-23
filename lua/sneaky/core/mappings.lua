@@ -18,6 +18,7 @@ keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 -- QOL mappings
 keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse available colorschemes with telescope
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files with telescope
+keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>") -- browse current file definitions with telescope
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>") -- live grep
 keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>") -- Toggles neotree
 keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- goes to class or variable definition
