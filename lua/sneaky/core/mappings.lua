@@ -20,7 +20,8 @@ keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse availa
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files with telescope
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>") -- live grep
 keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>") -- Toggles neotree
-keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
+keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- goes to class or variable definition
+keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>") -- toggles focus mode for current window
 
 -- Trouble
 keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>") -- Opens trouble
