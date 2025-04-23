@@ -5,6 +5,7 @@ local tab_size = 2
 vim.o.tabstop = tab_size
 vim.o.shiftwidth = tab_size
 vim.wo.relativenumber = true
+vim.opt.ignorecase = true -- makes it so that searching with "/" is case insensitive
 
 -- Sets up term
 if vim.fn.has("win32") == 1 then
