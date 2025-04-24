@@ -21,7 +21,8 @@ keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files w
 keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>") -- browse current file definitions with telescope
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>") -- live grep
 keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>") -- Toggles neotree
-keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- goes to class or variable definition
+keymap.set("n", "<Leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- goes to class or variable definition
+keymap.set("n", "<Leader>gr", "<cmd>lua vim.lsp.buf.references()<cr>") -- goes to class or variable definition
 keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>") -- toggles focus mode for current window
 
 -- Trouble
