@@ -2,17 +2,32 @@ return {
 	"saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
 	dependencies = "rafamadriz/friendly-snippets",
-
 	-- use a release tag to download pre-built binaries
 	version = "*",
 	-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
 	-- build = 'cargo build --release',
 	-- If you use nix, you can build from source using latest nightly rust with:
 	-- build = 'nix run .#build-plugin',
-
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
+		completion = {
+			list = { selection = { preselect = true, auto_insert = true } },
+			menu = {
+				min_width = 50,
+				auto_show = function(ctx)
+					return ctx.mode ~= "cmdline"
+				end,
+				border = "rounded",
+				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+				draw = {
+					treesitter = { "lsp" },
+				},
+			},
+			documentation = { window = { border = "rounded" } },
+		},
+
+		signature = { window = { border = "single" } },
 		-- 'default' for mappings similar to built-in completion
 		-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
 		-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
@@ -98,6 +113,9 @@ return {
 			-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 			-- Adjusts spacing to ensure icons are aligned
 			nerd_font_variant = "mono",
+		},
+		fuzzy = {
+			implementation = "prefer_rust_with_warning",
 		},
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
