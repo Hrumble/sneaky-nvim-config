@@ -25,6 +25,13 @@ keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>") -- Toggles neotree
 keymap.set("n", "<Leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- goes to class or variable definition
 keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>") -- toggles focus mode for current window
 
+-- Nvim dap (debugging)
+keymap.set("n", "<Leader>db", "<cmd>DapToggleBreakpoint<cr>") -- toggles breakpoint on current line
+keymap.set("n", "<Leader>dca", "<cmd>DapClearBreakpoints<cr>") -- clears all breakpoints
+keymap.set("n", "<F5>", "<cmd>DapContinue<cr>") -- moves to the next breakpoint while running
+keymap.set("n", "<Leader>dt", "<cmd>DapToggleRepl<cr>")
+keymap.set("n", "<C-F5>", "<cmd>DapNew<cr>")
+
 -- Trouble
 keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>") -- Opens trouble
 keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only

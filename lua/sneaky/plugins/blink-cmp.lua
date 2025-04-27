@@ -1,5 +1,5 @@
 return {
-	"saghen/blink.cmp",
+	"Saghen/blink.cmp",
 	-- optional: provides snippets for the snippet source
 	dependencies = "rafamadriz/friendly-snippets",
 	-- use a release tag to download pre-built binaries
@@ -14,17 +14,15 @@ return {
 		completion = {
 			list = { selection = { preselect = true, auto_insert = true } },
 			menu = {
+				winblend = 0,
 				min_width = 50,
-				auto_show = function(ctx)
-					return ctx.mode ~= "cmdline"
-				end,
-				border = "rounded",
+				border = "none",
 				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
 				draw = {
 					treesitter = { "lsp" },
 				},
 			},
-			documentation = { window = { border = "rounded" } },
+			documentation = { window = { border = "none" } },
 		},
 
 		signature = { window = { border = "single" } },
@@ -58,69 +56,29 @@ return {
 				end,
 				"fallback",
 			},
-			["<A-1>"] = {
-				function(cmp)
-					cmp.accept({ index = 1 })
-				end,
-			},
-			["<A-2>"] = {
-				function(cmp)
-					cmp.accept({ index = 2 })
-				end,
-			},
-			["<A-3>"] = {
-				function(cmp)
-					cmp.accept({ index = 3 })
-				end,
-			},
-			["<A-4>"] = {
-				function(cmp)
-					cmp.accept({ index = 4 })
-				end,
-			},
-			["<A-5>"] = {
-				function(cmp)
-					cmp.accept({ index = 5 })
-				end,
-			},
-			["<A-6>"] = {
-				function(cmp)
-					cmp.accept({ index = 6 })
-				end,
-			},
-			["<A-7>"] = {
-				function(cmp)
-					cmp.accept({ index = 7 })
-				end,
-			},
-			["<A-8>"] = {
-				function(cmp)
-					cmp.accept({ index = 8 })
-				end,
-			},
-			["<A-9>"] = {
-				function(cmp)
-					cmp.accept({ index = 9 })
-				end,
-			},
+			-- ["<A-1>"] = {
+			-- 	function(cmp)
+			-- 		cmp.accept({ index = 1 })
+			-- 	end,
+			-- },
 		},
 
 		appearance = {
 			-- Sets the fallback highlight groups to nvim-cmp's highlight groups
 			-- Useful for when your theme doesn't support blink.cmp
 			-- Will be removed in a future release
-			use_nvim_cmp_as_default = true,
+			use_nvim_cmp_as_default = false,
 			-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 			-- Adjusts spacing to ensure icons are aligned
 			nerd_font_variant = "mono",
 		},
-		fuzzy = {
-			implementation = "prefer_rust_with_warning",
-		},
+		-- fuzzy = {
+		-- 	implementation = "prefer_rust_with_warning",
+		-- },
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets" },
 			providers = {
 				cmdline = {
 					-- ignores cmdline completions when executing shell commands
