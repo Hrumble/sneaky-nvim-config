@@ -24,6 +24,7 @@ keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>") -- live grep
 keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>") -- Toggles neotree
 keymap.set("n", "<Leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- goes to class or variable definition
 keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>") -- toggles focus mode for current window
+keymap.set('n', "<Leader><Tab>", "<cmd>b#<cr>") -- Switches to previous opened buffer
 
 -- Nvim dap (debugging)
 keymap.set("n", "<Leader>db", "<cmd>DapToggleBreakpoint<cr>") -- toggles breakpoint on current line
@@ -36,20 +37,6 @@ keymap.set("n", "<C-F5>", "<cmd>DapNew<cr>")
 keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>") -- Opens trouble
 keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only
 
--- Barbar tab manager
-keymap.set('n', "<Leader><Tab>", "<cmd>BufferNext<cr>")
-keymap.set('n', "<Leader><S-Tab>", "<cmd>BufferPrevious<cr>")
-keymap.set('n', "<Leader>bc", "<cmd>BufferClose<cr>")
-keymap.set('n', "<Leader>b1", "<cmd>BufferGoto 1<cr>")
-keymap.set('n', "<Leader>b2", "<cmd>BufferGoto 2<cr>")
-keymap.set('n', "<Leader>b3", "<cmd>BufferGoto 3<cr>")
-keymap.set('n', "<Leader>b4", "<cmd>BufferGoto 4<cr>")
-keymap.set('n', "<Leader>b5", "<cmd>BufferGoto 5<cr>")
-keymap.set('n', "<Leader>b6", "<cmd>BufferGoto 6<cr>")
-keymap.set('n', "<Leader>b7", "<cmd>BufferGoto 7<cr>")
-keymap.set('n', "<Leader>b8", "<cmd>BufferGoto 9<cr>")
-keymap.set('n', "<Leader>b9", "<cmd>BufferGoto 9<cr>")
-keymap.set('n', "<Leader>b0", "<cmd>BufferLast<cr>")
 
 -- Term keymaps
 vim.keymap.set({ "t", "n" }, "<A-t>", "<cmd>ToggleTermToggleAll<cr>") -- Opens or closes all available or opened terminals
