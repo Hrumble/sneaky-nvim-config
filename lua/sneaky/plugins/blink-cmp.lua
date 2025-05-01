@@ -12,17 +12,17 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		completion = {
-			list = { selection = { preselect = true, auto_insert = true } },
+			list = { selection = { preselect = false, auto_insert = false } },
 			menu = {
 				winblend = 0,
 				min_width = 50,
-				border = "none",
+				border = 'rounded',
 				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
 				draw = {
 					treesitter = { "lsp" },
 				},
 			},
-			documentation = { window = { border = "none" } },
+			documentation = { window = { border = "rounded" } },
 		},
 
 		signature = { window = { border = "single" } },
@@ -51,7 +51,7 @@ return {
 			["<CR>"] = {
 				function(cmp)
 					if cmp.is_visible() then
-						return cmp.select_and_accept()
+						return cmp.accept()
 					end
 				end,
 				"fallback",

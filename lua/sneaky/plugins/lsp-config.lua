@@ -10,7 +10,16 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pylsp", "rust_analyzer", "ast_grep", "harper_ls", "html", "emmet_language_server", "cssls" }, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
+				ensure_installed = {
+					"lua_ls",
+					"pylsp",
+					"rust_analyzer",
+					"ast_grep",
+					"harper_ls",
+					"html",
+					"emmet_language_server",
+					"cssls",
+				}, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
 			})
 		end,
 	},
@@ -23,11 +32,13 @@ return {
 			-- set up each lsp here, you can specify filetypes, and other options.
 			servers = {
 				cssls = {},
-				emmet_language_server = {},
-				html = {
-					filetypes = {'html', 'php'}
-				},
 				ts_ls = {},
+				html = {
+					filetypes = { "html", "php", "typescriptreact" },
+				},
+				emmet_language_server = {
+					filetypes = { "html", "typescriptreact" },
+				},
 				harper_ls = {},
 				lua_ls = {},
 				pylsp = {},
