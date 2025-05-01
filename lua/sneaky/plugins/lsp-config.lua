@@ -10,7 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "pylsp", "rust_analyzer", "ast_grep" }, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
+				ensure_installed = { "lua_ls", "pylsp", "rust_analyzer", "ast_grep", "harper_ls" }, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
 			})
 		end,
 	},
@@ -22,18 +22,15 @@ return {
 		opts = {
 			-- set up each lsp here, you can specify filetypes, and other options.
 			servers = {
+				tsserver = {},
+				harper_ls = {},
 				lua_ls = {},
 				pylsp = {},
 				rust_analyzer = {
 					settings = {
 						["rust-analyzer"] = {
 							diagnostics = {
-								disabled = {
-									"unreachable_code",
-									"unused_variables",
-									"unused_imports",
-									"dead_code",
-								},
+								enable = false,
 							},
 						},
 					},
