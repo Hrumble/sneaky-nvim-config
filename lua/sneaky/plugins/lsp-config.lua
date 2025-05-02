@@ -15,7 +15,6 @@ return {
 					"pylsp",
 					"rust_analyzer",
 					"ast_grep",
-					"harper_ls",
 					"html",
 					"emmet_language_server",
 					"cssls",
@@ -34,12 +33,11 @@ return {
 				cssls = {},
 				ts_ls = {},
 				html = {
-					filetypes = { "html", "php", "typescriptreact" },
+					filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
 				},
 				emmet_language_server = {
-					filetypes = { "html", "typescriptreact" },
+					filetypes = { "html", "typescriptreact", "javascriptreact" },
 				},
-				harper_ls = {},
 				lua_ls = {},
 				pylsp = {},
 				rust_analyzer = {

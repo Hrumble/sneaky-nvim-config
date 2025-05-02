@@ -31,7 +31,7 @@ return {
 				"EndOfBuffer",
 			},
 			extra_groups = {
-				-- Sets plugins to be transparent (specifies their highlight groups to have no bg)
+				-- Sets plugins to be transparent (specifies their highlight groups to have no bg color)
 				-- Run :Telescope highlights to see all groups, or just :highlight
 				"FloatBorder",
 				"NeoTreeNormal",
