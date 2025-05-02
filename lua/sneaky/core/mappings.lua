@@ -18,15 +18,17 @@ keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 -- QOL mappings
 keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse available colorschemes with telescope
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files with telescope
+keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>") -- Opens a list of all available commands to the user
 keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>") -- browse current file definitions with telescope
 keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references<cr>") -- goes to class or variable definition
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>") -- live grep
 keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>") -- Toggles neotree
-keymap.set("n", "<Leader>gd", "<cmd>lua vim.lsp.buf.definition()<cr>") -- goes to class or variable definition
+keymap.set("n", "<Leader>gd", "<cmd>Telescope lsp_definitions<cr>") -- goes to class or variable definition of word under cursor
+keymap.set("n", "<Leader>gtd", "<cmd>Telescope lsp_type_definitions<cr>") -- goes to the definition of the *TYPE* of the word under cursor
 keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>") -- toggles focus mode for current window
 keymap.set('n', "<Leader><Tab>", "<cmd>b#<cr>") -- Switches to previous opened buffer
 
--- Nvim dap (debugging)
+-- kvim dap (debugging)
 keymap.set("n", "<Leader>db", "<cmd>DapToggleBreakpoint<cr>") -- toggles breakpoint on current line
 keymap.set("n", "<Leader>dca", "<cmd>DapClearBreakpoints<cr>") -- clears all breakpoints
 keymap.set("n", "<F5>", "<cmd>DapContinue<cr>") -- moves to the next breakpoint while running
