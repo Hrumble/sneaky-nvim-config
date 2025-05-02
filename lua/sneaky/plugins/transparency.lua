@@ -32,10 +32,20 @@ return {
 			},
 			extra_groups = {
 				-- Sets plugins to be transparent (specifies their highlight groups to have no bg)
+				-- Run :Telescope highlights to see all groups, or just :highlight
+				"FloatBorder",
 				"NeoTreeNormal",
 				"NeoTreeNormalNC",
 				"NormalFloat",
-				"TelescopeNormal"
+				-- Telescope highlight groups
+				"TelescopeNormal",
+				"TelescopeBorder",
+				"TelescopePromptBorder",
+				-- Blink groups
+				"BlinkCmpMenuBorder",
+				"BlinkCmdDocBorder",
+				"LspInfoBorder"
+
 			},
 		})
 		vim.cmd("TransparentEnable")
