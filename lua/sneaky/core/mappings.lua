@@ -16,6 +16,8 @@ keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { norema
 keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 
 -- QOL mappings
+keymap.set("n", "<S-u>", "<cmd>redo<cr>") -- shift-u to redo undo
+
 keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse available colorschemes with telescope
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files with telescope
 keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>") -- Opens a list of all available commands to the user
@@ -29,7 +31,7 @@ keymap.set("n", "<Leader>gtd", "<cmd>Telescope lsp_type_definitions<cr>") -- goe
 keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>") -- toggles focus mode for current window
 keymap.set('n', "<Leader><Tab>", "<cmd>b#<cr>") -- Switches to previous opened buffer
 
--- kvim dap (debugging)
+-- nvim dap (debugging)
 keymap.set("n", "<Leader>db", "<cmd>DapToggleBreakpoint<cr>") -- toggles breakpoint on current line
 keymap.set("n", "<Leader>dca", "<cmd>DapClearBreakpoints<cr>") -- clears all breakpoints
 keymap.set("n", "<F5>", "<cmd>DapContinue<cr>") -- moves to the next breakpoint while running
