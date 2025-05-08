@@ -18,6 +18,7 @@ return {
 					"html",
 					"emmet_language_server",
 					"cssls",
+					"omnisharp",
 				}, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
 			})
 		end,
@@ -30,6 +31,10 @@ return {
 		opts = {
 			-- set up each lsp here, you can specify filetypes, and other options.
 			servers = {
+				gdscript = {
+					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+				},
+				omnisharp = {},
 				cssls = {},
 				ts_ls = {},
 				html = {
