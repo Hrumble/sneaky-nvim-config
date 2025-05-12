@@ -16,6 +16,11 @@ keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { norema
 keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 
 -- QOL mappings
+keymap.set("n", "<S-k>", function ()
+	vim.lsp.buf.hover({
+		border = "rounded",
+	})
+end) -- Remaps <S-k> to give rounded borders
 keymap.set("n", "<S-u>", "<cmd>redo<cr>") -- shift-u to redo undo
 
 keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse available colorschemes with telescope
