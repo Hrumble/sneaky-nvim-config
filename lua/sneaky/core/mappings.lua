@@ -26,7 +26,13 @@ keymap.set("n", "<S-u>", "<cmd>redo<cr>")                                 -- shi
 keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>")           -- browse available colorschemes with telescope
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>")            -- browse files with telescope
 keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>")              -- Opens a list of all available commands to the user
-keymap.set("n", "<Leader>fb", "<cmd>Telescope buffers<cr>")               -- Opens a list of all available commands to the user
+keymap.set("n", "<Leader>fb", function()               -- Opens a list of all available commands to the user
+	require("telescope.builtin").buffers({
+		sort_mru = true,
+		show_all_buffers = false,
+		ignore_current_buffer = true,
+	})
+end)
 keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")  -- browse current file definitions with telescope
 keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references<cr>")        -- goes to class or variable definition
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>")             -- live grep
