@@ -55,9 +55,6 @@ return {
 					},
 				},
 				ast_grep = {},
-				dartls = {
-					onlyAnalyzeProjectsWithOpenFiles = false,
-				},
 			},
 		},
 		-- No idea what this does but don't touch it.
