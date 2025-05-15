@@ -18,3 +18,9 @@ if vim.fn.has("win32") == 1 then
 	vim.o.shellpipe = "| Out-File -Encoding UTF8 %s"
 	vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
 end
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = "rounded", -- Options: 'none', 'single', 'double', 'rounded', 'solid'
+  }
+)
