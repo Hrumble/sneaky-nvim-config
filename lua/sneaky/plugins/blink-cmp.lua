@@ -22,10 +22,10 @@ return {
 					treesitter = { "lsp" },
 				},
 			},
-			documentation = { window = { border = "rounded" } },
+			documentation = { auto_show = true, window = { border = "rounded" } },
 		},
 
-		signature = { window = { border = "single" } },
+		signature = { window = { border = "rounded" } },
 		-- 'default' for mappings similar to built-in completion
 		-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
 		-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
