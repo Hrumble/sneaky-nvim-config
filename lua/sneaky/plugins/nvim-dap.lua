@@ -3,11 +3,13 @@ return {
 	event = "VeryLazy",
 	dependencies = {
 		"jay-babu/mason-nvim-dap.nvim",
+		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
 	},
 	config = function()
-		vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapBreakpoint", { text = "❤️", texthl = "", linehl = "", numhl = "" })
 
-		-- Sets up mason-dap to autoinstall debuggers
+		-- Setup mason-dap
 		local mason_dap = require("mason-nvim-dap")
 		mason_dap.setup({
 			ensure_installed = { "dart", "codelldb" },
@@ -19,21 +21,42 @@ return {
 			},
 		})
 
-		-- configuration and adapters
-		local dap = require("dap")
+		local dap, dapui = require("dap"), require("dapui")
+		dap.listeners.before.attach.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.launch.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited.dapui_config = function()
+			dapui.close()
+		end
+
+		-- Optional keymap to toggle DAP UI
+		vim.keymap.set("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
+
+		-- Define Dart & Flutter adapters
 		local mason_bin_path = vim.fn.stdpath("data") .. "/mason/bin/"
+		local dart_adapter = vim.fn.has("win32") == 1
+				and mason_bin_path .. "dart-debug-adapter.cmd"
+				or mason_bin_path .. "dart-debug-adapter"
+
 		dap.adapters = {
 			dart = {
 				type = "executable",
-				command = mason_bin_path .. "dart-debug-adapter.cmd",
+				command = dart_adapter,
 				args = { "dart" },
 			},
 			flutter = {
 				type = "executable",
-				command = mason_bin_path .. "dart-debug-adapter.cmd",
+				command = dart_adapter,
 				args = { "flutter" },
 			},
 		}
+
 		dap.configurations = {
 			dart = {
 				{
@@ -45,11 +68,13 @@ return {
 				},
 			},
 			flutter = {
-				type = "flutter",
-				request = "launch",
-				name = "Launch Flutter",
-				program = "${workspaceFolder}/lib/main.dart",
-				cwd = "${workspaceFolder}",
+				{
+					type = "flutter",
+					request = "launch",
+					name = "Launch Flutter",
+					program = "${workspaceFolder}/lib/main.dart",
+					cwd = "${workspaceFolder}",
+				},
 			},
 		}
 	end,
