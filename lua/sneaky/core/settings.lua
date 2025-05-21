@@ -6,6 +6,7 @@ vim.o.tabstop = tab_size
 vim.o.shiftwidth = tab_size
 vim.wo.relativenumber = true
 vim.opt.ignorecase = true -- makes it so that searching with "/" is case insensitive
+vim.opt.shadafile = "NONE" -- Disables shada files because they piss me off
 
 -- Sets up term
 if vim.fn.has("win32") == 1 then
@@ -24,3 +25,5 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     border = "rounded", -- Options: 'none', 'single', 'double', 'rounded', 'solid'
   }
 )
+
+
