@@ -7,6 +7,7 @@ return {
 		config = function()
 			local telescope = require("telescope")
 			local action_state = require("telescope.actions.state")
+			local actions = require("telescope.actions")
 
 			local smart_split = function()
 				local smart = require("smartsplit.smart-split")
@@ -23,9 +24,13 @@ return {
 					mappings = {
 						i = {
 							["<A-s>"] = smart_split,
+							["<A-h>"] = actions.select_horizontal,
+							["<A-v>"] = actions.select_vertical,
 						},
 						n = {
 							["<A-s>"] = smart_split,
+							["<A-h>"] = actions.select_horizontal,
+							["<A-v>"] = actions.select_vertical,
 						},
 					},
 				},
