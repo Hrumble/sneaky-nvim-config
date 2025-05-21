@@ -36,7 +36,8 @@ end)
 keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")  -- browse current file definitions with telescope
 keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references<cr>")        -- goes to class or variable definition
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>")             -- live grep
-keymap.set("n", "<C-n>", "<cmd>Neotree toggle<cr>")                       -- Toggles neotree
+keymap.set("n", "|", "<cmd>Neotree toggle left<cr>")                       -- Toggles neotree
+keymap.set("n", "<Bslash>", "<cmd>Neotree toggle left reveal<cr>")                       -- Toggles neotree
 keymap.set("n", "<Leader>gd", "<cmd>Telescope lsp_definitions<cr>")       -- goes to class or variable definition of word under cursor
 keymap.set("n", "<Leader>gtd", "<cmd>Telescope lsp_type_definitions<cr>") -- goes to the definition of the *TYPE* of the word under cursor
 keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>")                         -- toggles focus mode for current window
