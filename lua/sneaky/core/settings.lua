@@ -20,10 +20,16 @@ if vim.fn.has("win32") == 1 then
 	vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
 end
 
+-- Adds border to <S-k> hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {
     border = "rounded", -- Options: 'none', 'single', 'double', 'rounded', 'solid'
   }
 )
 
-
+-- Resizes all windows to equal sizes when new buf opened
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+	callback = function(e)
+		vim.cmd("wincmd=")
+	end
+})
