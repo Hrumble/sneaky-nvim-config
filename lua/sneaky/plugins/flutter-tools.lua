@@ -8,7 +8,7 @@ return {
 	config = function()
 		require("flutter-tools").setup({
 			debugger = {
-				enabled = true,
+				enabled = false, -- Not working so disabling it
 				exception_breakpoints = {},
 				register_configurations = function(_)
 					require("dap").configurations.dart = {
