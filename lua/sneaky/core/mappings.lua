@@ -3,6 +3,8 @@ local keymap = vim.keymap
 keymap.set({ "n", "v" }, "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
+-- General Mappings
+keymap.set("i", "jj", "<Esc>")
 -- Sets split screen movement to use Alt
 keymap.set({ "n", "t" }, "<A-j>", "<C-w>j")
 keymap.set({ "n", "t" }, "<A-k>", "<C-w>k")
