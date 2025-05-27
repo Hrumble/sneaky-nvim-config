@@ -28,38 +28,43 @@ keymap.set("n", "<S-e>", function()
 	vim.diagnostic.open_float({
 		border = "rounded",
 	})
-end, { noremap = true }) -- Maps <S-e> to open hover diagnostic window with border
-keymap.set("n", "<Leader>rn", function() vim.lsp.buf.rename() end)
-keymap.set("n", "<S-u>", "<cmd>redo<cr>") -- shift-u to redo undo
-keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse available colorschemes with telescope
-keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files with telescope
-keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>") -- Opens a list of all available commands to the user
-keymap.set("n", "<Leader>fb", function() -- Opens a list of all available commands to the user
+end, { noremap = true })                                                                                                          -- Maps <S-e> to open hover diagnostic window with border
+keymap.set("n", "<Leader>rn", function() vim.lsp.buf.rename() end,
+	{ desc = "renames a function or variable in the entire project" })                                                              -- renames a function or variable in the entire project
+keymap.set("n", "<S-u>", "<cmd>redo<cr>", { desc = "shift-u to redo undo" })                                                      -- shift-u to redo undo
+keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>", { desc = "browse available colorschemes with telescope" })        -- browse available colorschemes with telescope
+keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { desc = "browse files with telescope" })                          -- browse files with telescope
+keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>", { desc =
+"Opens a list of all available commands to the user" })                                                                           -- Opens a list of all available commands to the user
+keymap.set("n", "<Leader>fb", function()                                                                                          -- Opens a list of all available commands to the user
 	require("telescope.builtin").buffers({
 		sort_mru = true,
 		show_all_buffers = false,
 		ignore_current_buffer = true,
 	})
 end)
-keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>") -- browse current file definitions with telescope
-keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references<cr>") -- goes to class or variable definition
-keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>") -- live grep
-keymap.set("n", "|", "<cmd>Neotree toggle left<cr>") -- Toggles neotree
-keymap.set("n", "<Bslash>", "<cmd>Neotree toggle left reveal<cr>") -- Toggles neotree
-keymap.set("n", "<Leader>gd", "<cmd>Telescope lsp_definitions<cr>") -- goes to class or variable definition of word under cursor
-keymap.set("n", "<Leader>gtd", "<cmd>Telescope lsp_type_definitions<cr>") -- goes to the definition of the *TYPE* of the word under cursor
-keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>") -- toggles focus mode for current window
-keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>") -- Switches to previous opened buffer
+keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>",
+	{ desc = "browse current file definitions with telescope" })                                                                                    -- browse current file definitions with telescope
+keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references<cr>", { desc = "goes to class or variable definition" })                             -- goes to class or variable definition
+keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "live grep" })                                                             -- live grep
+keymap.set("n", "|", "<cmd>Neotree toggle left<cr>", { desc = "Toggles neotree" })                                                                -- Toggles neotree
+keymap.set("n", "<Bslash>", "<cmd>Neotree toggle left reveal<cr>", { desc = "Toggles neotree" })                                                  -- Toggles neotree
+keymap.set("n", "<Leader>gd", "<cmd>Telescope lsp_definitions<cr>",
+	{ desc = "goes to class or variable definition of word under cursor" })                                                                         -- goes to class or variable definition of word under cursor
+keymap.set("n", "<Leader>gtd", "<cmd>Telescope lsp_type_definitions<cr>",
+	{ desc = "goes to the definition of the *TYPE* of the word under cursor" })                                                                     -- goes to the definition of the *TYPE* of the word under cursor
+keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>", { desc = "toggles focus mode for current window" })                                             -- toggles focus mode for current window
+keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>", { desc = "Switches to previous opened buffer" })                                                  -- Switches to previous opened buffer
 
 -- nvim dap (debugging)
-keymap.set("n", "<Leader>db", "<cmd>DapToggleBreakpoint<cr>") -- toggles breakpoint on current line
-keymap.set("n", "<Leader>dca", "<cmd>DapClearBreakpoints<cr>") -- clears all breakpoints
-keymap.set("n", "<F5>", "<cmd>DapContinue<cr>") -- moves to the next breakpoint while running
+keymap.set("n", "<Leader>db", "<cmd>DapToggleBreakpoint<cr>", { desc = "toggles breakpoint on current line" }) -- toggles breakpoint on current line
+keymap.set("n", "<Leader>dca", "<cmd>DapClearBreakpoints<cr>", { desc = "clears all breakpoints" })        -- clears all breakpoints
+keymap.set("n", "<F5>", "<cmd>DapContinue<cr>", { desc = "moves to the next breakpoint while running" })   -- moves to the next breakpoint while running
 keymap.set("n", "<Leader>dt", "<cmd>DapToggleRepl<cr>")
 keymap.set("n", "<C-F5>", "<cmd>DapNew<cr>")
 
 -- Trouble
-keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>") -- Opens trouble
+keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>")              -- Opens trouble
 keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only
 
 -- Term keymaps

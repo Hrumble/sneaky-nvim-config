@@ -15,11 +15,11 @@ return {
 
 				smart.smart_split()
 				vim.cmd("edit " .. selection.path)
-
 			end
 
 			telescope.setup({
 				defaults = {
+					borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
 					layout_stategy = "vertical",
 					mappings = {
 						i = {
