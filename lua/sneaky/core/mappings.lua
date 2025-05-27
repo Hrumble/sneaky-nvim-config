@@ -29,9 +29,8 @@ keymap.set("n", "<S-e>", function()
 		border = "rounded",
 	})
 end, { noremap = true }) -- Maps <S-e> to open hover diagnostic window with border
-
+keymap.set("n", "<Leader>rn", function() vim.lsp.buf.rename() end)
 keymap.set("n", "<S-u>", "<cmd>redo<cr>") -- shift-u to redo undo
-
 keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>") -- browse available colorschemes with telescope
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>") -- browse files with telescope
 keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>") -- Opens a list of all available commands to the user
