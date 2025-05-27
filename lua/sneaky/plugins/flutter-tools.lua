@@ -1,71 +1,49 @@
 return {
-	"nvim-flutter/flutter-tools.nvim",
-	lazy = false,
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"stevearc/dressing.nvim", -- optional for vim.ui.select
-	},
+	"akinsho/flutter-tools.nvim",
+	dependencies = { "nvim-lua/plenary.nvim", "stevearc/dressing.nvim" },
 	config = function()
-		require("flutter-tools").setup({
+	  local lspconfig = require("lspconfig")
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+		require('flutter-tools').setup {
+			-- (uncomment below line for windows only)
+			-- flutter_path = "home/flutter/bin/flutter.bat",
+
 			debugger = {
-				enabled = false, -- Not working so disabling it
-				exception_breakpoints = {},
+				-- make these two params true to enable debug mode
+				enabled = false,
+				run_via_dap = false,
 				register_configurations = function(_)
+					require("dap").adapters.dart = {
+						type = "executable",
+						command = vim.fn.stdpath("data") .. "/mason/bin/dart-debug-adapter",
+						args = { "flutter" }
+					}
+
 					require("dap").configurations.dart = {
 						{
-							name = "Flutter Chrome",
 							type = "dart",
 							request = "launch",
-							program = "lib/main.dart",
-							args = { "-d", "chrome" },
-						},
-						{
-							name = "Flutter Edge",
-							type = "dart",
-							request = "launch",
-							program = "lib/main.dart",
-							args = { "-d", "edge" },
-						},
-						{
-							name = "celos",
-							request = "launch",
-							type = "dart",
-						},
-						{
-							name = "celos (profile mode)",
-							request = "launch",
-							type = "dart",
-							flutterMode = "profile",
-						},
-						{
-							name = "celos (release mode)",
-							request = "launch",
-							type = "dart",
-							flutterMode = "release",
-						},
-						{
-							name = "All Tests",
-							type = "dart",
-							request = "launch",
-							program = "test/",
-						},
-
+							name = "Launch flutter",
+							dartSdkPath = 'home/flutter/bin/cache/dart-sdk/',
+							flutterSdkPath = "home/flutter",
+							program = "${workspaceFolder}/lib/main.dart",
+							cwd = "${workspaceFolder}",
+						}
 					}
-					local dap, dapui = require("dap"), require("dapui")
-					dap.listeners.before.attach.dapui_config = function()
-						dapui.open()
-					end
-					dap.listeners.before.launch.dapui_config = function()
-						dapui.open()
-					end
-					dap.listeners.before.event_terminated.dapui_config = function()
-						dapui.close()
-					end
-					dap.listeners.before.event_exited.dapui_config = function()
-						dapui.close()
-					end
+					-- uncomment below line if you've launch.json file already in your vscode setup
+					-- require("dap.ext.vscode").load_launchjs()
 				end,
-			}
-		})
-	end,
+			},
+			dev_log = {
+				-- toggle it when you run without DAP
+				enabled = false,
+				open_cmd = "tabedit",
+			},
+			lsp = {
+				capabilities = capabilities,
+			},
+
+		}
+	end
 }
