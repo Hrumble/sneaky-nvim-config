@@ -2,8 +2,20 @@ return {
 	"akinsho/flutter-tools.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "stevearc/dressing.nvim" },
 	config = function()
-	  local lspconfig = require("lspconfig")
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
+		local lspconfig = require("lspconfig")
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+		vim.api.nvim_create_user_command("DevLogFloat", function()
+			vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
+				relative = 'editor',
+				width = 80,
+				height = 20,
+				row = 5,
+				col = 10,
+				style = 'minimal',
+				border = 'rounded',
+			})
+		end, {})
 
 		require('flutter-tools').setup {
 			-- (uncomment below line for windows only)
@@ -37,8 +49,8 @@ return {
 			},
 			dev_log = {
 				-- toggle it when you run without DAP
-				enabled = false,
-				open_cmd = "tabedit",
+				enabled = true,
+				open_cmd = "bo 15sp"
 			},
 			lsp = {
 				capabilities = capabilities,
