@@ -12,68 +12,116 @@ fi
 
 echo "🛠️ Installing config dependencies..."
 
-# Install ripgrep (used by Telescope, fzf, etc.)
-if ! command -v rg &>/dev/null; then
-  echo "Installing ripgrep..."
-  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    sudo apt install -y ripgrep
-  elif [[ "$OSTYPE" == "darwin"* ]]; then
-    brew install ripgrep
+#!/usr/bin/env bash
+
+set -e
+
+check_cmd() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+install_linux() {
+  echo "[+] Detected Linux OS"
+
+  # Detect package manager
+  if check_cmd apt; then
+    PM="sudo apt install -y"
+    UPDATE="sudo apt update"
+  elif check_cmd dnf; then
+    PM="sudo dnf install -y"
+    UPDATE="sudo dnf check-update || true"
+  elif check_cmd pacman; then
+    PM="sudo pacman -S --noconfirm"
+    UPDATE="sudo pacman -Sy"
+  else
+    echo "[-] Unsupported Linux package manager"
+    exit 1
   fi
-else
-  echo "[OK] ripgrep already installed"
-fi
 
-# Install clang (for C/C++ LSPs like clangd)
-if ! command -v clang &>/dev/null; then
-  echo "Installing clang..."
-  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    sudo apt install -y clang
-  elif [[ "$OSTYPE" == "darwin"* ]]; then
-    brew install llvm
+  $UPDATE
+
+  # Python
+  if ! check_cmd python3; then
+    echo "[*] Installing Python"
+    $PM python3
+  else
+    echo "[✔] Python already installed"
   fi
-else
-  echo "[OK] clang already installed"
-fi
 
-echo "Would you like to let the setup install the required LSPs not provided by mason? (tsserver, dartls)\n[Y/N]"
-read u
+  # NPM
+  if ! check_cmd npm; then
+    echo "[*] Installing NPM"
+    $PM npm
+  else
+    echo "[✔] NPM already installed"
+  fi
 
-if [ "$u" != "Y" ] && [ "$u" != "y" ]; then
-  echo "[FINISHED] Installation complete"
-	exit
-fi
+  # ripgrep
+  if ! check_cmd rg; then
+    echo "[*] Installing ripgrep"
+    $PM ripgrep
+  else
+    echo "[✔] ripgrep already installed"
+  fi
 
-# Install Node.js-based language servers
-echo "📦 Installing Node.js language servers..."
+  # clang
+  if ! check_cmd clang; then
+    echo "[*] Installing clang"
+    $PM clang
+  else
+    echo "[✔] clang already installed"
+  fi
+}
 
-if ! command -v npm &>/dev/null; then
-  echo "❌ npm is not installed. Please install Node.js first."
-  exit 1
-fi
+install_windows() {
+  echo "[+] Detected Windows OS"
 
-npm install -g \
-  typescript \
-  typescript-language-server \
-  vscode-langservers-extracted \
-  prettier \
-  eslint_d
+  if ! check_cmd choco; then
+    echo "[-] Chocolatey not found. Please install Chocolatey first: https://chocolatey.org/install"
+    exit 1
+  fi
 
-# Example: Python LSP (optional)
-if command -v pip &>/dev/null; then
-  echo "🐍 Installing Python LSP..."
-  pip install 'python-lsp-server[all]'
-fi
+  # Python
+  if ! check_cmd python; then
+    echo "[*] Installing Python"
+    choco install -y python
+  else
+    echo "[✔] Python already installed"
+  fi
 
-# Install rust-analyzer via rustup (if Rust is installed)
-if command -v rustup &>/dev/null; then
-  echo "🦀 Installing rust-analyzer..."
-  rustup component add rust-analyzer || true
-else
-  echo "❌ rustup not found. Install Rust first if you want rust-analyzer."
-fi
+  # NPM
+  if ! check_cmd npm; then
+    echo "[*] Installing Node.js (includes npm)"
+    choco install -y nodejs
+  else
+    echo "[✔] NPM already installed"
+  fi
 
-# Optionally auto-install Mason packages (if using Mason)
-echo "🧩 (Optional) Installing Mason packages via Lua? Consider scripting :MasonInstall"
+  # ripgrep
+  if ! check_cmd rg; then
+    echo "[*] Installing ripgrep"
+    choco install -y ripgrep
+  else
+    echo "[✔] ripgrep already installed"
+  fi
 
-echo "[OK] All done! You may now restart Neovim."
+  # clang
+  if ! check_cmd clang; then
+    echo "[*] Installing LLVM/Clang"
+    choco install -y llvm
+  else
+    echo "[✔] clang already installed"
+  fi
+}
+
+main() {
+  unameOut="$(uname -s)"
+  case "${unameOut}" in
+    Linux*)     install_linux ;;
+    Darwin*)    echo "[-] macOS not supported in this script yet"; exit 1 ;;
+    MINGW*|MSYS*|CYGWIN*) install_windows ;;
+    *)          echo "[-] Unknown OS: ${unameOut}"; exit 1 ;;
+  esac
+}
+
+main
