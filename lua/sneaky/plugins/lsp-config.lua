@@ -19,6 +19,7 @@ return {
 					"emmet_language_server",
 					"cssls",
 					"omnisharp",
+					"glslls",
 				}, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
 			})
 		end,
@@ -30,74 +31,79 @@ return {
 		-- example using `opts` for defining servers
 		opts = {
 			-- set up each lsp here, you can specify filetypes, and other options.
-servers = {
-	gdscript = {
-		filetypes = { "gdscript" },
-		root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
-	},
-	omnisharp = {
-		filetypes = { "cs", "vb" },
-	},
-	cssls = {
-		filetypes = { "css", "scss", "less" },
-	},
-	ts_ls = {
-		filetypes = { "typescript" }, -- or use "tsserver" for default name
-	},
-	html = {
-		filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
-	},
-	emmet_language_server = {
-		filetypes = { "html", "css", "scss", "less", "typescriptreact", "javascriptreact" },
-	},
-	lua_ls = {
-		filetypes = { "lua" },
-		on_attach = on_attach,
-		flags = lsp_flags,
-		settings = {
-			Lua = {
-				runtime = {
-					version = "LuaJIT",
+			servers = {
+				gdscript = {
+					filetypes = { "gdscript" },
+					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
 				},
-				diagnostics = {
-					globals = { "vim" },
+				glslls = {
+					filetypes = {
+						"glsl",
+					},
 				},
-				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true),
+				omnisharp = {
+					filetypes = { "cs", "vb" },
 				},
-				telemetry = {
-					enable = false,
+				cssls = {
+					filetypes = { "css", "scss", "less" },
+				},
+				ts_ls = {
+					filetypes = { "typescript" }, -- or use "tsserver" for default name
+				},
+				html = {
+					filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
+				},
+				emmet_language_server = {
+					filetypes = { "html", "css", "scss", "less", "typescriptreact", "javascriptreact" },
+				},
+				lua_ls = {
+					filetypes = { "lua" },
+					on_attach = on_attach,
+					flags = lsp_flags,
+					settings = {
+						Lua = {
+							runtime = {
+								version = "LuaJIT",
+							},
+							diagnostics = {
+								globals = { "vim" },
+							},
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true),
+							},
+							telemetry = {
+								enable = false,
+							},
+						},
+					},
+				},
+				pylsp = {
+					filetypes = { "python" },
+				},
+				rust_analyzer = {
+					filetypes = { "rust" },
+					settings = {
+						["rust-analyzer"] = {
+							diagnostics = {
+								enable = false,
+							},
+							cargo = {
+								loadOutDirsFromCheck = true,
+							},
+							procMacro = {
+								enable = true,
+							},
+							files = {
+								excludeDirs = { "target", ".git", "node_modules" },
+							},
+						},
+					},
+				},
+				ast_grep = {
+					-- no official filetypes, define only if you know what you're using
+					-- filetypes = { "typescript", "javascript", "rust", "c", "lua", ... },
 				},
 			},
-		},
-	},
-	pylsp = {
-		filetypes = { "python" },
-	},
-	rust_analyzer = {
-		filetypes = { "rust" },
-		settings = {
-			["rust-analyzer"] = {
-				diagnostics = {
-					enable = false,
-				},
-				cargo = {
-					loadOutDirsFromCheck = true,
-				},
-				procMacro = {
-					enable = true,
-				},
-				files = {
-					excludeDirs = { "target", ".git", "node_modules" },
-				},
-			},
-		},
-	},
-	ast_grep = {
-		-- no official filetypes, define only if you know what you're using
-		-- filetypes = { "typescript", "javascript", "rust", "c", "lua", ... },
-	},
-}
 		},
 		-- No idea what this does but don't touch it.
 		config = function(_, opts)
