@@ -30,55 +30,74 @@ return {
 		-- example using `opts` for defining servers
 		opts = {
 			-- set up each lsp here, you can specify filetypes, and other options.
-			servers = {
-				gdscript = {
-					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+servers = {
+	gdscript = {
+		filetypes = { "gdscript" },
+		root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+	},
+	omnisharp = {
+		filetypes = { "cs", "vb" },
+	},
+	cssls = {
+		filetypes = { "css", "scss", "less" },
+	},
+	ts_ls = {
+		filetypes = { "typescript" }, -- or use "tsserver" for default name
+	},
+	html = {
+		filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
+	},
+	emmet_language_server = {
+		filetypes = { "html", "css", "scss", "less", "typescriptreact", "javascriptreact" },
+	},
+	lua_ls = {
+		filetypes = { "lua" },
+		on_attach = on_attach,
+		flags = lsp_flags,
+		settings = {
+			Lua = {
+				runtime = {
+					version = "LuaJIT",
 				},
-				omnisharp = {},
-				cssls = {},
-				ts_ls = {},
-				html = {
-					filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
+				diagnostics = {
+					globals = { "vim" },
 				},
-				emmet_language_server = {
-					filetypes = { "html", "typescriptreact", "javascriptreact" },
+				workspace = {
+					library = vim.api.nvim_get_runtime_file("", true),
 				},
-				lua_ls = {
-					on_attach = on_attach,
-					flags = lsp_flags,
-					settings = {
-						Lua = {
-							runtime = {
-								-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-								version = "LuaJIT",
-							},
-							diagnostics = {
-								-- Get the language server to recognize the `vim` global
-								globals = { "vim" },
-							},
-							workspace = {
-								-- Make the server aware of Neovim runtime files
-								library = vim.api.nvim_get_runtime_file("", true),
-							},
-							-- Do not send telemetry data containing a randomized but unique identifier
-							telemetry = {
-								enable = false,
-							},
-						},
-					},
+				telemetry = {
+					enable = false,
 				},
-				pylsp = {},
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {
-							diagnostics = {
-								enable = false,
-							},
-						},
-					},
-				},
-				ast_grep = {},
 			},
+		},
+	},
+	pylsp = {
+		filetypes = { "python" },
+	},
+	rust_analyzer = {
+		filetypes = { "rust" },
+		settings = {
+			["rust-analyzer"] = {
+				diagnostics = {
+					enable = false,
+				},
+				cargo = {
+					loadOutDirsFromCheck = true,
+				},
+				procMacro = {
+					enable = true,
+				},
+				files = {
+					excludeDirs = { "target", ".git", "node_modules" },
+				},
+			},
+		},
+	},
+	ast_grep = {
+		-- no official filetypes, define only if you know what you're using
+		-- filetypes = { "typescript", "javascript", "rust", "c", "lua", ... },
+	},
+}
 		},
 		-- No idea what this does but don't touch it.
 		config = function(_, opts)
