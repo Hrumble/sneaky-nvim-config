@@ -37,7 +37,9 @@ return {
 					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
 				},
 				wgsl_analyzer = {
+					cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl-analyzer" },
 					filetypes = { "wgsl" },
+					settings = {},
 				},
 				omnisharp = {
 					filetypes = { "cs", "vb" },
