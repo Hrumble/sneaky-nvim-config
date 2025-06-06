@@ -14,12 +14,12 @@ return {
 					"lua_ls",
 					"pylsp",
 					"rust_analyzer",
+					"wgsl_analyzer",
 					"ast_grep",
 					"html",
 					"emmet_language_server",
 					"cssls",
 					"omnisharp",
-					"glslls",
 				}, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
 			})
 		end,
@@ -36,10 +36,8 @@ return {
 					filetypes = { "gdscript" },
 					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
 				},
-				glslls = {
-					filetypes = {
-						"glsl",
-					},
+				wgsl_analyzer = {
+					filetypes = { "wgsl" },
 				},
 				omnisharp = {
 					filetypes = { "cs", "vb" },
