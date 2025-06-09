@@ -11,7 +11,6 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"glslls", -- needs cmake...
 					"lua_ls",
 					"pylsp",
 					"rust_analyzer",
@@ -35,9 +34,6 @@ return {
 				gdscript = {
 					filetypes = { "gdscript" },
 					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
-				},
-				glslls = {
-					filetypes = { "glsl" },
 				},
 				wgsl_analyzer = {
 					cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl-analyzer" },
