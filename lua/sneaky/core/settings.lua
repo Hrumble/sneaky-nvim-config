@@ -7,7 +7,6 @@ vim.o.shiftwidth = tab_size
 vim.wo.relativenumber = true
 vim.opt.ignorecase = true -- makes it so that searching with "/" is case insensitive
 vim.opt.shadafile = "NONE" -- Disables shada files because they piss me off
-vim.o.messagesopt = "history:500,wait:1000" -- Disables the "Hit Enter" shit and just shows the message for 1s instead
 
 -- Sets up term
 if vim.fn.has("win32") == 1 then

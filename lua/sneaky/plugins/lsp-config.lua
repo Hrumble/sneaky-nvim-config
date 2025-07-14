@@ -31,9 +31,18 @@ return {
 		opts = {
 			-- set up each lsp here, you can specify filetypes, and other options.
 			servers = {
+				jdtls = {
+					cmd = {"jdtls"},
+					filetypes = { "java" },  -- Correct position for filetypes outside the java settings
+				},
 				gdscript = {
 					filetypes = { "gdscript" },
 					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+				},
+				gdshader_lsp = { -- https://github.com/GodOfAvacyn/gdshader-lsp
+					-- build from source and add to path
+					filetypes = {"gdshader"},
+					cmd = {"gdshader-lsp"}
 				},
 				wgsl_analyzer = {
 					cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl-analyzer" },
@@ -59,6 +68,7 @@ return {
 					filetypes = { "lua" },
 					on_attach = on_attach,
 					flags = lsp_flags,
+					-- lot of boilerplate to let me get vim cmp when coding here
 					settings = {
 						Lua = {
 							runtime = {
