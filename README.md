@@ -3,7 +3,7 @@
 I always wanted to get into nvim because it looked fun, but never really found the time or interest.
 Recently however, I have, and had to learn all about it.
 
-This is more of a "Learning nvim configuration" thing than "Leaning nvim" itself.
+This is more of a "Learning nvim configuration" thing than "Learning nvim" itself.
 
 This **readme** file is mainly for me, as I would just like to not lose my config, as well as not get lost the next time I explore it.
 So, if you're here for a nvim tutorial or an indepth guide, I can assure you this is very much the wrong place to be, you will not understand anything, and I will be wrong.
