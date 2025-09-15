@@ -23,6 +23,7 @@ return {
 				},
 			},
 			documentation = { auto_show = true, window = { border = "rounded" } },
+			ghost_text = { enabled = true }
 		},
 
 		signature = { window = { border = "rounded" } },

@@ -44,6 +44,7 @@ return {
 				-- Blink groups
 				"BlinkCmpMenuBorder",
 				"BlinkCmdDocBorder",
+				"BlinkCmpDoc",
 				"LspInfoBorder",
 				-- Trouble
 				"TroubleNormal",
