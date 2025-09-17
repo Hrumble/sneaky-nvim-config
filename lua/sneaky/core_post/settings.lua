@@ -1,4 +1,4 @@
-print("Plugins loaded loaded")
+print("Plugins loaded")
 
 -- Sets colorscheme
-vim.cmd('colorscheme tokyonight-night')
+vim.cmd('colorscheme kanagawa')
