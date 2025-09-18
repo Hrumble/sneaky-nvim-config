@@ -16,12 +16,13 @@ return {
 				graphql = { "prettier" },
 				lua = { "stylua" },
 				python = { "isort", "black" },
+				gdscript = { "gdformat" },
 				dart = {},
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<S-A-f>", function()
 			conform.format({
-				lsp_fallback = true,
+				lsp_format = "fallback",
 				async = true,
 				timeout_ms = 500,
 			})
