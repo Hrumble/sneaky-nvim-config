@@ -15,8 +15,8 @@ return {
 					"pylsp",
 					"rust_analyzer",
 					"ast_grep",
-					"html",
-					"emmet_language_server",
+					-- "html",
+					-- "emmet_language_server",
 					"cssls",
 					"omnisharp",
 				}, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
@@ -58,12 +58,12 @@ return {
 				ts_ls = {
 					filetypes = { "typescript" }, -- or use "tsserver" for default name
 				},
-				html = {
-					filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
-				},
-				emmet_language_server = {
-					filetypes = { "html", "css", "scss", "less", "typescriptreact", "javascriptreact" },
-				},
+				-- html = {
+				-- 	filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
+				-- },
+				-- emmet_language_server = {
+				-- 	filetypes = { "html", "css", "scss", "less", "typescriptreact", "javascriptreact" },
+				-- },
 				lua_ls = {
 					filetypes = { "lua" },
 					on_attach = on_attach,

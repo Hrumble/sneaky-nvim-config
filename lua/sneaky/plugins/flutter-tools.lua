@@ -22,7 +22,7 @@ return {
 			-- flutter_path = "home/flutter/bin/flutter.bat",
 
 			debugger = {
-				-- make these two params true to enable debug mode
+				-- Make these two params true to enable debug mode
 				enabled = false,
 				run_via_dap = false,
 				register_configurations = function(_)
