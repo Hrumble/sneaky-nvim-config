@@ -12,7 +12,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"pylsp",
+					"pyright",
 					"rust_analyzer",
 					"ast_grep",
 					-- "html",
@@ -32,8 +32,8 @@ return {
 			-- set up each lsp here, you can specify filetypes, and other options.
 			servers = {
 				jdtls = {
-					cmd = {"jdtls"},
-					filetypes = { "java" },  -- Correct position for filetypes outside the java settings
+					cmd = { "jdtls" },
+					filetypes = { "java" }, -- Correct position for filetypes outside the java settings
 				},
 				gdscript = {
 					filetypes = { "gdscript" },
@@ -41,8 +41,8 @@ return {
 				},
 				gdshader_lsp = { -- https://github.com/GodOfAvacyn/gdshader-lsp
 					-- build from source and add to path
-					filetypes = {"gdshader"},
-					cmd = {"gdshader-lsp"}
+					filetypes = { "gdshader" },
+					cmd = { "gdshader-lsp" }
 				},
 				wgsl_analyzer = {
 					cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl-analyzer" },
@@ -86,7 +86,7 @@ return {
 						},
 					},
 				},
-				pylsp = {
+				pyright = {
 					filetypes = { "python" },
 				},
 				rust_analyzer = {
