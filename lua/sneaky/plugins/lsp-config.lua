@@ -6,6 +6,13 @@ return {
 		end,
 	},
 	{
+		"mattn/emmet-vim",
+		config = function()
+			vim.g.user_emmet_mode = "n"
+			vim.g.emmet_disable_autoclose_tag = 1
+		end,
+	},
+	{
 		-- Mason is a lsp package manager, it does nothing but install and manage them for you
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
@@ -32,8 +39,8 @@ return {
 			-- set up each lsp here, you can specify filetypes, and other options.
 			servers = {
 				jdtls = {
-					cmd = {"jdtls"},
-					filetypes = { "java" },  -- Correct position for filetypes outside the java settings
+					cmd = { "jdtls" },
+					filetypes = { "java" }, -- Correct position for filetypes outside the java settings
 				},
 				gdscript = {
 					filetypes = { "gdscript" },
@@ -41,8 +48,8 @@ return {
 				},
 				gdshader_lsp = { -- https://github.com/GodOfAvacyn/gdshader-lsp
 					-- build from source and add to path
-					filetypes = {"gdshader"},
-					cmd = {"gdshader-lsp"}
+					filetypes = { "gdshader" },
+					cmd = { "gdshader-lsp" },
 				},
 				wgsl_analyzer = {
 					cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl-analyzer" },

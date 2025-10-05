@@ -16,14 +16,14 @@ return {
 			menu = {
 				winblend = 0,
 				min_width = 50,
-				border = 'rounded',
+				border = "rounded",
 				winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
 				draw = {
 					treesitter = { "lsp" },
 				},
 			},
 			documentation = { auto_show = true, window = { border = "rounded" } },
-			ghost_text = { enabled = true }
+			ghost_text = { enabled = true },
 		},
 
 		signature = { window = { border = "rounded" } },
