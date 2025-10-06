@@ -19,7 +19,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"pyright",
+					"basedpyright",
 					"rust_analyzer",
 					"ast_grep",
 					-- "html",
@@ -93,7 +93,7 @@ return {
 						},
 					},
 				},
-				pyright = {
+				basedpyright = {
 					filetypes = { "python" },
 				},
 				rust_analyzer = {
