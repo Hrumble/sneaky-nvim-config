@@ -95,6 +95,16 @@ return {
 				},
 				basedpyright = {
 					filetypes = { "python" },
+					settings = {
+						basedpyright = {
+							analysis = {
+								typeCheckingMode = "basic",
+								reportArgumentType = false,
+								reportOptionalSubscript = false,
+								reportIndexIssue = false,
+							},
+						},
+					},
 				},
 				rust_analyzer = {
 					filetypes = { "rust" },
