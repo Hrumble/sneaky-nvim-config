@@ -47,6 +47,7 @@ keymap.set("n", "{", function()
 		aerial.prev()
 	end
 end, { desc = "Aerial next function" })
+
 -- Telescope
 keymap.set(
 	"n",
@@ -90,19 +91,15 @@ keymap.set(
 keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>", { desc = "toggles focus mode for current window" }) -- toggles focus mode for current window
 keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>", { desc = "Switches to previous opened buffer" }) -- Switches to previous opened buffer
 
--- nvim dap (debugging)
-keymap.set("n", "<Leader>db", "<cmd>DapToggleBreakpoint<cr>", { desc = "toggles breakpoint on current line" }) -- toggles breakpoint on current line
-keymap.set("n", "<Leader>dca", "<cmd>DapClearBreakpoints<cr>", { desc = "clears all breakpoints" }) -- clears all breakpoints
-keymap.set("n", "<F5>", "<cmd>DapContinue<cr>", { desc = "moves to the next breakpoint while running" }) -- moves to the next breakpoint while running
-keymap.set("n", "<Leader>dt", "<cmd>DapToggleRepl<cr>")
-keymap.set("n", "<C-F5>", "<cmd>DapNew<cr>")
-
 -- Trouble
 keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>") -- Opens trouble
 keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only
 
 -- LazyGit
 keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+-- nvim dap
+-- See lua/sneaky/plugins/debugging.lua
 
 -- Term keymaps
 vim.keymap.set({ "t", "n" }, "<A-t>", "<cmd>ToggleTermToggleAll<cr>") -- Opens or closes all available or opened terminals
