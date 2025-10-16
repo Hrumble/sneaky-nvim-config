@@ -2,7 +2,6 @@ return {
 	"akinsho/flutter-tools.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "stevearc/dressing.nvim" },
 	config = function()
-		local lspconfig = require("lspconfig")
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		vim.api.nvim_create_user_command("DevLogFloat", function()
