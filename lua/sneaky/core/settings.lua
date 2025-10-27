@@ -8,17 +8,19 @@ vim.wo.relativenumber = true
 vim.opt.ignorecase = true -- makes it so that searching with "/" is case insensitive
 vim.opt.shadafile = "NONE" -- Disables shada files because they piss me off
 
--- Sets up term
-if vim.fn.has("win32") == 1 then
-	vim.g.terminal_emulator = "powershell"
-	vim.opt.shell = "powershell"
-	-- Don't mind the code here copied from SO for PS to work
-	vim.o.shellxquote = ""
-	vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
-	vim.o.shellquote = ""
-	vim.o.shellpipe = "| Out-File -Encoding UTF8 %s"
-	vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
-end
+-- Uncomment to set powershell as default on windows, I switched to alacritty
+-- -- Sets up term
+-- if vim.fn.has("win32") == 1 then
+-- 	vim.g.terminal_emulator = "powershell"
+-- 	vim.opt.shell = "powershell"
+-- 	-- Don't mind the code here copied from SO for PS to work
+-- 	vim.o.shellxquote = ""
+-- 	vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command "
+-- 	vim.o.shellquote = ""
+-- 	vim.o.shellpipe = "| Out-File -Encoding UTF8 %s"
+-- 	vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
+-- end
+vim.g.terminal_emulator = "alacritty"
 
 -- Adds border to <S-k> hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
