@@ -17,8 +17,12 @@ keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { norema
 -- maps to reload nvim conf
 keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 
+-- Random
+keymap.set("n", "<Leader>fmlg", "<cmd>CellularAutomaton game_of_life<cr>")
+keymap.set("n", "<Leader>fmlm", "<cmd>CellularAutomaton make_it_rain<cr>")
+
 -- Awareness
-keymap.set("n", "<Leader>zz", "<cmd>Twilight<cr>", {desc = "Toggles twilight to focus on current edited scope"})
+keymap.set("n", "<Leader>zz", "<cmd>Twilight<cr>", { desc = "Toggles twilight to focus on current edited scope" })
 
 -- QOL mappings
 keymap.set("n", "<S-k>", function()
@@ -34,7 +38,7 @@ keymap.set("n", "<S-e>", function()
 end, { noremap = true }) -- Maps <S-e> to open hover diagnostic window with border
 keymap.set("n", "<Leader>rn", function()
 	vim.lsp.buf.rename()
-end, { desc = "renames a function or variable in the entire project" }) -- renames a function or variable in the entire project
+end, { desc = "renames a function or variable in the entire project" })      -- renames a function or variable in the entire project
 keymap.set("n", "<S-u>", "<cmd>redo<cr>", { desc = "shift-u to redo undo" }) -- shift-u to redo undo
 -- Aerial
 keymap.set("n", "<Leader>a", "<cmd>AerialToggle<cr>", { desc = "Toggles the aerial window" })
@@ -57,11 +61,11 @@ keymap.set(
 	"<Leader>ft",
 	"<cmd>Telescope colorscheme<cr>",
 	{ desc = "browse available colorschemes with telescope" }
-) -- browse available colorschemes with telescope
+)                                                                                                        -- browse available colorschemes with telescope
 keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { desc = "browse files with telescope" }) -- browse files with telescope
 keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>", {
 	desc = "Opens a list of all available commands to the user",
-}) -- Opens a list of all available commands to the user
+})                                       -- Opens a list of all available commands to the user
 keymap.set("n", "<Leader>fb", function() -- Opens a list of all available commands to the user
 	require("telescope.builtin").buffers({
 		sort_mru = true,
@@ -74,11 +78,11 @@ keymap.set(
 	"<Leader>fs",
 	"<cmd>Telescope lsp_document_symbols<cr>",
 	{ desc = "browse current file definitions with telescope" }
-) -- browse current file definitions with telescope
+)                                                                                                                     -- browse current file definitions with telescope
 keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references<cr>", { desc = "goes to class or variable definition" }) -- goes to class or variable definition
-keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "live grep" }) -- live grep
-keymap.set("n", "|", "<cmd>Neotree toggle left<cr>", { desc = "Toggles neotree" }) -- Toggles neotree
-keymap.set("n", "<Bslash>", "<cmd>Neotree toggle left reveal<cr>", { desc = "Toggles neotree on the current file" }) -- Toggles neotree
+keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "live grep" })                                 -- live grep
+keymap.set("n", "|", "<cmd>Neotree toggle left<cr>", { desc = "Toggles neotree" })                                    -- Toggles neotree
+keymap.set("n", "<Bslash>", "<cmd>Neotree toggle left reveal<cr>", { desc = "Toggles neotree on the current file" })  -- Toggles neotree
 keymap.set(
 	"n",
 	"<Leader>gd",
@@ -90,11 +94,11 @@ keymap.set(
 	"<Leader>gtd",
 	"<cmd>Telescope lsp_type_definitions<cr>",
 	{ desc = "goes to the definition of the *TYPE* of the word under cursor" }
-) -- goes to the definition of the *TYPE* of the word under cursor
+)                                                                                                -- goes to the definition of the *TYPE* of the word under cursor
 keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>", { desc = "Switches to previous opened buffer" }) -- Switches to previous opened buffer
 
 -- Trouble
-keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>") -- Opens trouble
+keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>")              -- Opens trouble
 keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only
 
 -- LazyGit
