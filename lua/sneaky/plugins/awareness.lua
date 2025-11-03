@@ -20,23 +20,13 @@ return {
 	},
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		lazy=true,
+		lazy = true,
 		-- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
 		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' }, -- if you use standalone mini plugins
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {},
-	},
-	{
-		"folke/zen-mode.nvim",
-		config = function()
-			require("zen-mode").setup({
-				window = {
-					width = 1,
-				},
-			})
-		end,
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -51,4 +41,12 @@ return {
 			require("neo-tree").setup({})
 		end,
 	},
+	{
+		"folke/twilight.nvim",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		}
+	}
 }

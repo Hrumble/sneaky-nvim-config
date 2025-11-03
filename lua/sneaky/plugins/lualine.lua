@@ -4,7 +4,6 @@ local function get_attached_clients()
 	if #buf_clients == 0 then
 		return "No client active"
 	end
-	local buf_ft = vim.bo.filetype
 	local buf_client_names = {}
 	local num_client_names = #buf_client_names
 

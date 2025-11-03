@@ -17,6 +17,9 @@ keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { norema
 -- maps to reload nvim conf
 keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 
+-- Awareness
+keymap.set("{n}", "<Leader>zz", "<cmd>Twilight<cr>", {desc = "Toggles twilight to focus on current edited scope"})
+
 -- QOL mappings
 keymap.set("n", "<S-k>", function()
 	vim.lsp.buf.hover({
@@ -88,7 +91,6 @@ keymap.set(
 	"<cmd>Telescope lsp_type_definitions<cr>",
 	{ desc = "goes to the definition of the *TYPE* of the word under cursor" }
 ) -- goes to the definition of the *TYPE* of the word under cursor
-keymap.set("n", "<Leader>zz", "<cmd>ZenMode<cr>", { desc = "toggles focus mode for current window" }) -- toggles focus mode for current window
 keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>", { desc = "Switches to previous opened buffer" }) -- Switches to previous opened buffer
 
 -- Trouble
