@@ -18,7 +18,7 @@ keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { norema
 keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 
 -- Awareness
-keymap.set("{n}", "<Leader>zz", "<cmd>Twilight<cr>", {desc = "Toggles twilight to focus on current edited scope"})
+keymap.set("n", "<Leader>zz", "<cmd>Twilight<cr>", {desc = "Toggles twilight to focus on current edited scope"})
 
 -- QOL mappings
 keymap.set("n", "<S-k>", function()
