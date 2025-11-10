@@ -25,6 +25,12 @@ keymap.set("n", "<Leader>fmlm", "<cmd>CellularAutomaton make_it_rain<cr>")
 keymap.set("n", "<Leader>zz", "<cmd>Twilight<cr>", { desc = "Toggles twilight to focus on current edited scope" })
 
 -- QOL mappings
+keymap.set("n", "<Leader>rp", function()
+	local reg = vim.fn.getcharstr()
+	local content = vim.fn.getreg(reg)
+
+	vim.cmd("normal! R" .. content)
+end)
 keymap.set("n", "<S-k>", function()
 	vim.lsp.buf.hover({
 		border = "rounded",

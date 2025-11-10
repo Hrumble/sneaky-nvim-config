@@ -35,3 +35,11 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
 	end
 })
 
+-- Gives me the french accents
+vim.api.nvim_create_autocmd({"VimEnter"}, {
+	callback = function(e)
+		vim.fn.setreg("e", "é", "c")
+		vim.fn.setreg("q", "è", "c")
+	end
+})
+
