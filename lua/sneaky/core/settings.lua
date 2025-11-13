@@ -21,13 +21,6 @@ if vim.fn.has("win32") == 1 then
 	vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
 end
 
--- Adds border to <S-k> hover
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = "rounded", -- Options: 'none', 'single', 'double', 'rounded', 'solid'
-  }
-)
-
 -- Resizes all windows to equal sizes when new buf opened
 vim.api.nvim_create_autocmd({"BufWinEnter"}, {
 	callback = function(e)
@@ -35,11 +28,6 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
 	end
 })
 
--- Gives me the french accents
-vim.api.nvim_create_autocmd({"VimEnter"}, {
-	callback = function(e)
-		vim.fn.setreg("e", "é", "c")
-		vim.fn.setreg("q", "è", "c")
-	end
+vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
+	command="checktime"
 })
-

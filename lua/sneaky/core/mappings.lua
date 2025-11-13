@@ -24,6 +24,10 @@ keymap.set("n", "<Leader>fmlm", "<cmd>CellularAutomaton make_it_rain<cr>")
 -- Awareness
 keymap.set("n", "<Leader>zz", "<cmd>Twilight<cr>", { desc = "Toggles twilight to focus on current edited scope" })
 
+-- Accents
+keymap.set("i", "<A-'>", "<C-k>'")
+keymap.set("i", "<A-`>", "<C-k>`")
+
 -- QOL mappings
 keymap.set("n", "<Leader>rp", function()
 	local reg = vim.fn.getcharstr()
