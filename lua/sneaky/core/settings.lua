@@ -29,5 +29,12 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
 })
 
 vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
-	command="checktime"
+	callback=function()
+		vim.cmd("checktime")
+		local ok, neotree = pcall(require, "neo-tree.sources.manager")
+		if ok then
+			neotree.refresh("filesystem")
+			neotree.refresh("git_status")
+		end
+	end
 })
