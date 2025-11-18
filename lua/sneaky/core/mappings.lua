@@ -94,11 +94,10 @@ keymap.set(
 	"<Leader>fs",
 	"<cmd>Telescope lsp_document_symbols<cr>",
 	{ desc = "browse current file definitions with telescope" }
-)                                                                                                                     -- browse current file definitions with telescope
+) -- browse current file definitions with telescope
+
 keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references<cr>", { desc = "goes to class or variable definition" }) -- goes to class or variable definition
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "live grep" })                                 -- live grep
-keymap.set("n", "|", "<cmd>Neotree toggle left<cr>", { desc = "Toggles neotree" })                                    -- Toggles neotree
-keymap.set("n", "<Bslash>", "<cmd>Neotree toggle left reveal<cr>", { desc = "Toggles neotree on the current file" })  -- Toggles neotree
 keymap.set(
 	"n",
 	"<Leader>gd",
@@ -119,6 +118,9 @@ keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter
 
 -- LazyGit
 keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+-- Mini
+keymap.set("n", "|", function() MiniFiles.open() end)
 
 -- nvim dap
 -- See lua/sneaky/plugins/debugging.lua
