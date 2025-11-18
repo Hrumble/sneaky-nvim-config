@@ -58,6 +58,8 @@ return {
 				overrides = function(colors)
 					local theme = colors.theme
 					return {
+						Function = { bold = true },
+
 						NormalFloat = { bg = "none" },
 						FloatBorder = { bg = "none" },
 						FloatTitle = { bg = "none" }
