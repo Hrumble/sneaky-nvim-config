@@ -11,11 +11,12 @@ keymap.set({ "n", "t" }, "<A-k>", "<C-w>k")
 keymap.set({ "n", "t" }, "<A-h>", "<C-w>h")
 keymap.set({ "n", "t" }, "<A-l>", "<C-w>l")
 
--- Barbar
-keymap.set("n", "<Tab>", ":BufferNext<cr>")
-keymap.set("n", "<S-Tab>", ":BufferPrevious<cr>")
-keymap.set("n", "<A-p>", ":BufferPick<cr>")
-keymap.set("n", "<A-c>", ":BufferClose<cr>")
+-- Tabby
+keymap.set("n", "<leader>tl", "<cmd>tabnext<cr>")
+keymap.set("n", "<leader>th", "<cmd>tabp<cr>")
+keymap.set("n", "<A-n>", "<cmd>tabnew<cr>")
+keymap.set("n", "<A-p>", "<cmd>Tabby jump_to_tab<cr>")
+keymap.set("n", "<A-c>", "<cmd>tabclose<cr>")
 
 -- maps code actions
 keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { noremap = true, silent = true })
