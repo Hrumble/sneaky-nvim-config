@@ -2,7 +2,12 @@ return {
 	{
 		'nvim-mini/mini.files',
 		config = function()
-			require("mini.files").setup({})
+			require("mini.files").setup({
+				windows = {
+					preview = true,
+					width_preview = 100
+				}
+			})
 		end
 	},
 }
