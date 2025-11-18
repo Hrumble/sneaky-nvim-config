@@ -15,16 +15,6 @@ return {
 		priority = 1000,
 	},
 	{
-		"scottmckendry/cyberdream.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("cyberdream").setup({
-				transparent = false,
-			})
-		end,
-	},
-	{
 		"catppuccin/nvim",
 		lazy = false,
 		name = "catppuccin",
