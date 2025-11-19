@@ -121,7 +121,7 @@ keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter
 keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 
 -- Mini
-keymap.set("n", "<BS>", function() MiniFiles.open(nil, false) end)
+keymap.set("n", "<BS>", function() MiniFiles.open(nil, true) end)
 keymap.set("n", "|", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end)
 
 -- nvim dap
