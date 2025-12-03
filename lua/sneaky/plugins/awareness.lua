@@ -48,5 +48,15 @@ return {
 		config = function()
 			require('tabby').setup({})
 		end
+	},
+	{
+		'chrisgrieser/nvim-origami',
+		event = "VeryLazy",
+		opts = {},
+
+		init = function()
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+		end
 	}
 }
