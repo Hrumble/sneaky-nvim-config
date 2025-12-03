@@ -1,81 +1,88 @@
-<h1 align="center">
-<a href="https://spacevim.org">
-  <img src="https://spacevim.org/logo.png" width="440" alt="SpaceVim"/>
-  </a>
-</h1>
+# My very own nvim config woohoo!
 
-[Quick Start Guide](https://spacevim.org/quick-start-guide/) \|
-[Chat](https://chat.mozilla.org/#/room/#spacevim:matrix.org) \|
-[Documentation](https://spacevim.org/documentation/) \|
-[Layers](https://spacevim.org/layers/)
+I always wanted to get into nvim because it looked fun, but never really found the time or interest.
+Recently however, I have, and had to learn all about it.
 
-[![build](https://img.shields.io/github/actions/workflow/status/SpaceVim/SpaceVim/check.yml?branch=master)](https://github.com/SpaceVim/SpaceVim/actions/workflows/check.yml?query=branch%3Amaster)
-[![Codecov coverage](https://img.shields.io/codecov/c/github/SpaceVim/SpaceVim.svg)](https://codecov.io/gh/SpaceVim/SpaceVim)
-[![Release](https://img.shields.io/badge/Release-2.4.0-8700FF.svg)](https://spacevim.org/SpaceVim-release-v2.4.0/)
-[![GPLv3 License](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/SpaceVim/SpaceVim/blob/master/LICENSE)
+This is more of a "Learning nvim configuration" thing than "Learning nvim" itself.
 
-![work-flow](https://img.spacevim.org/workflow.png)
+This **readme** file is mainly for me, as I would just like to not lose my config, as well as not get lost the next time I explore it.
+So, if you're here for a nvim tutorial or an indepth guide, I can assure you this is very much the wrong place to be, you will not understand anything, and I will be wrong.
+rather check out [typecraft_dev](https://www.youtube.com/@typecraft_dev) which has a very useful playlist on getting started with nvim.
 
+## Installation
 
-SpaceVim is a modular configuration of Vim and Neovim.
-It's inspired by spacemacs. It manages collections of plugins in layers,
-which help to collect related packages together to provide features.
-This approach helps keep the configuration organized and reduces
-overhead for the user by keeping them from having to think about
-what packages to install.
+### Linux
+On linux, it's pretty straightforward, simply clone the repository and move it to your user config:
+```sh
+git clone https://github.com/Hrumble/sneaky-nvim-config ~/.config/nvim
+```
+### Windows
+On windows, it's a bit more complicated:
 
-## Features
-
-- **Modularization:** plugins and functions are organized in [layers](https://spacevim.org/layers/).
-- **Compatible api:** a series of [compatible APIs](https://spacevim.org/api/) for Vim/Neovim.
-- **Great documentation:** online [documentation](https://spacevim.org/documentation/) and `:h SpaceVim`.
-- **Better experience:** rewrite core plugins using lua
-- **Beautiful UI:** you'll love the awesome UI and its useful features.
-- **Mnemonic key bindings:** key binding guide will be displayed automatically
-- **Fast boot time:** Lazy-load 90% of plugins with [dein.vim](https://github.com/Shougo/dein.vim)
-- **Lower the risk of RSI:** by heavily using the space bar instead of modifiers.
-- **Consistent experience:** consistent experience between terminal and gui
-
-
-## Project Layout
-
-```txt
-├─ .ci/                           build automation
-├─ .github/                       issue/PR templates
-├─ .SpaceVim.d/                   project specific configuration
-├─ after/                         overrule or add to the distributed defaults
-├─ autoload/SpaceVim.vim          SpaceVim core file
-├─ autoload/SpaceVim/api/         Public APIs
-├─ autoload/SpaceVim/layers/      available layers
-├─ autoload/SpaceVim/plugins/     builtin plugins
-├─ autoload/SpaceVim/mapping/     mapping guide
-├─ colors/                        default colorscheme
-├─ docker/                        docker image generator
-├─ bundle/                        bundle plugins
-├─ lua/spacevim/plugin            builtin plugins(lua)
-├─ doc/                           help(cn/en)
-├─ docs/                          website(cn/en)
-├─ wiki/                          wiki(cn/en)
-├─ bin/                           executable
-└─ test/                          tests
+Firstly, download `clang` either via [LLVM](https://releases.llvm.org/) (but that would require you installing the standard C libraries), or use [MSYS2](https://www.msys2.org/), and install it.
+Once installed launch mingw64 and type in:
+```sh
+pacman -Syu
 ```
 
-## Contribute
+Restart the terminal, then:
+```sh
+pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-clang
 
-This project wouldn't exist without all the people who contributed,
-We are thankful for any contributions from the community.
+```
+Inside your *MSYS2 Installation directory* you should find a `mingw64/bin/` folder, add that to path, then you're good to go.
 
-<a href="https://github.com/SpaceVim/SpaceVim/graphs/contributors"><img src="https://opencollective.com/spacevim/contributors.svg?width=890&button=false" /></a>
+All that's left is cloning the repo and adding it to your nvim config directory, which is usually at `%LOCALAPPDATA%/nvim/`.
 
-## Credits
+*on pwsh*
+```
+git clone https://github.com/Hrumble/sneaky-nvim-config $ENV:LOCALAPPDATA/nvim/
+```
 
-- [Hack-SpaceVim](https://github.com/Gabirel/Hack-SpaceVim) by [@Gabirel](https://github.com/Gabirel)
-- [SpaceVimTutorial](https://everettjf.gitbooks.io/spacevimtutorial/content/) by [@everettjf](https://github.com/everettjf)
-- [10-minutes-to-SpaceVim](https://github.com/Jackiexiao/10-minutes-to-SpaceVim) by [@Jackiexiao](https://github.com/Jackiexiao)
-- [A First Look At SpaceVim](https://www.youtube.com/watch?v=iXPS_NHLj9k) by [@DistroTube](https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg)
-- [Getting Started With SpaceVim](https://www.youtube.com/watch?v=3xB501CJDB8) by [FOSS King](https://www.youtube.com/channel/UCfU_sitghekwveLh6yM_xuA)
-- [vimdoc](https://github.com/google/vimdoc): Vim help file generator
-- [spacemacs](https://www.spacemacs.org/): A community-driven Emacs distribution
-- Authors of all the plugins used in SpaceVim.
+*on cmd*
+```
+git clone https://github.com/Hrumble/sneaky-nvim-config %LOCALAPPDATA%/nvim/
+```
 
-<!-- vim:set nowrap: -->
+## Lazy package manager
+
+First off, the entire config is built on [Lazy](https://github.com/folke/lazy.nvim) which is a package manager for vim.
+the config of lazy itself is located in `/lua/sneaky/lazy.lua` and comprises of shameful copy and paste from the official github page.
+
+the line that actually sets up each individual *package* is the following
+
+```lua
+require("lazy").setup("sneaky.plugins")
+```
+And it basically tells Lazy to load every `.lua` file inside `~/.config/nvim/lua/sneaky/plugins/`, so far so good.
+
+## Actually adding a package
+
+Great so if you ever want to install a package later, just create a new `.lua` file inside `~/.config/nvim/lua/sneaky/plugins/`, name it however you want, neither I nor lazy will care, and add the package in that file
+
+Every package follows the same syntax, for instance my gruvbox theme inside `colorscheme.lua` looks like:
+```lua
+return {
+	'morhetz/gruvbox', 
+	name="gruvbox", 
+	priority = 1000, 
+	config = function() 
+		-- sets gruvbox as the color theme
+		vim.cmd.colorscheme("gruvbox")
+	end
+}
+```
+
+Check out the other packages and see they all follow the same basic syntax:
+```lua
+return {
+    'github/repo',
+    'ihavenocluewhatthisnameisusedfor',
+    priority = 1000, --The loading priority of this package
+    config = function()
+        -- Whatever you write here will execute when this package gets loaded
+    end
+}
+```
+
+
