@@ -28,35 +28,4 @@ return {
 		---@type render.md.UserConfig
 		opts = {},
 	},
-	{
-		"folke/twilight.nvim",
-		opts = {
-			dimming = {
-				inactive = true,
-			},
-			context = 1,
-			expand = {
-				"function"
-			}
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		}
-	},
-	{
-		'nanozuki/tabby.nvim',
-		config = function()
-			require('tabby').setup({})
-		end
-	},
-	{
-		'chrisgrieser/nvim-origami',
-		event = "VeryLazy",
-		opts = {},
-
-		init = function()
-			vim.o.foldlevel = 99
-			vim.o.foldlevelstart = 99
-		end
-	}
 }

@@ -1,0 +1,82 @@
+return {
+	-- Autopair closing and opening
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		config = function()
+			require('nvim-autopairs').setup({
+				disable_filetype = { "markdown", "text" }
+			})
+		end
+	},
+	-- Code formatter
+	{
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local conform = require("conform")
+
+			conform.setup({
+				formatters_by_ft = {
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					javascriptreact = { "prettier" },
+					typescriptreact = { "prettier" },
+					css = { "prettier" },
+					json = { "prettier" },
+					markdown = { "prettier" },
+					graphql = { "prettier" },
+					lua = { "stylua" },
+					python = { "isort", "black" },
+					gdscript = { "gdformat" },
+					dart = {},
+				},
+			})
+			vim.keymap.set({ "n", "v" }, "<S-A-f>", function()
+				conform.format({
+					lsp_format = "fallback",
+					async = true,
+					timeout_ms = 500,
+				})
+			end, { desc = "Format file or range (in visual mode)" })
+		end,
+	},
+	-- LSP Diagnostics
+	{
+		'folke/trouble.nvim',
+		config = function()
+			require('trouble').setup({})
+		end
+	},
+	{
+		"folke/twilight.nvim",
+		opts = {
+			dimming = {
+				inactive = true,
+			},
+			context = 1,
+			expand = {
+				"function"
+			}
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		}
+	},
+	{
+		'nanozuki/tabby.nvim',
+		config = function()
+			require('tabby').setup({})
+		end
+	},
+	{
+		'chrisgrieser/nvim-origami',
+		event = "VeryLazy",
+		opts = {},
+
+		init = function()
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+		end
+	}
+}
