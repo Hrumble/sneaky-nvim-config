@@ -80,7 +80,7 @@ return {
 
 			require("origami").setup({
 				foldKeymaps = {
-					enabled = false
+					setup = false
 				},
 				autoFold = {
 					enabled = true,
