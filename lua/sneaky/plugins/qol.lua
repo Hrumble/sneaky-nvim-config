@@ -74,9 +74,19 @@ return {
 		event = "VeryLazy",
 		opts = {},
 
-		init = function()
+		config = function()
 			vim.o.foldlevel = 99
 			vim.o.foldlevelstart = 99
+
+			require("origami").setup({
+				foldKeymaps = {
+					enabled = false
+				},
+				autoFold = {
+					enabled = true,
+					kinds = { "comment", "imports" }
+				}
+			})
 		end
 	}
 }
