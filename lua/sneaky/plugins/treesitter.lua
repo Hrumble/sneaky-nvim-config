@@ -21,6 +21,12 @@ return {
 		end
 	},
 	{
+		"nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require("treesitter-context").setup({})
+		end,
+	},
+	{
 		"windwp/nvim-ts-autotag",
 		config = function()
 			require('nvim-ts-autotag').setup({

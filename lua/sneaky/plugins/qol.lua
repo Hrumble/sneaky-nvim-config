@@ -63,12 +63,14 @@ return {
 			-- refer to the configuration section below
 		}
 	},
+	-- Nice tab manager, ACTUAL TABS NOT FUCKING BUFFERS
 	{
 		'nanozuki/tabby.nvim',
 		config = function()
 			require('tabby').setup({})
 		end
 	},
+	-- Nicer TS based folds
 	{
 		'chrisgrieser/nvim-origami',
 		event = "VeryLazy",
@@ -89,6 +91,7 @@ return {
 			})
 		end
 	},
+	-- Comments on code
 	{
 		"jameswolensky/marker-groups.nvim",
 		dependencies = {
@@ -105,5 +108,14 @@ return {
 				picker = 'telescope',
 			})
 		end,
+	},
+	{
+		's1n7ax/nvim-comment-frame',
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter"
+		},
+		config = function()
+			require("nvim-comment-frame").setup({})
+		end
 	}
 }
