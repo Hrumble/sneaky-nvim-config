@@ -18,6 +18,9 @@ keymap.set("n", "<A-n>", "<cmd>tabnew<cr>")
 keymap.set("n", "<A-p>", "<cmd>Tabby jump_to_tab<cr>")
 keymap.set("n", "<A-c>", "<cmd>tabclose<cr>")
 
+-- GROPER
+keymap.set("n", "<leader>gg", function() require("groper").live_grep() end)
+
 -- maps code actions
 keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { noremap = true, silent = true })
 
