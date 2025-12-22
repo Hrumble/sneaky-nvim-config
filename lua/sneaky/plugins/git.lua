@@ -1,24 +1,24 @@
 return {
 	{
-		"kdheepak/lazygit.nvim",
-		lazy = true,
-		cmd = {
-			"LazyGit",
-			"LazyGitConfig",
-			"LazyGitCurrentFile",
-			"LazyGitFilter",
-			"LazyGitFilterCurrentFile",
-		},
-		-- optional for floating window border decoration
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
-	{
 		"sindrets/diffview.nvim",
 		config = function()
 			require("diffview").setup()
 		end
+	},
+	{
+		"NeogitOrg/neogit",
+			lazy = true,
+			dependencies = {
+				"nvim-lua/plenary.nvim",         -- required
+				"sindrets/diffview.nvim",        -- optional - Diff integration
+
+				-- Only one of these is needed.
+				"nvim-telescope/telescope.nvim", -- optional
+			},
+			cmd = "Neogit",
+			keys = {
+				{ "<leader>ng", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+			}
 	},
 	{
 		'lewis6991/gitsigns.nvim',
