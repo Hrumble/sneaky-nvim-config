@@ -63,14 +63,8 @@ return {
 					filetypes = { "css", "scss", "less" },
 				},
 				ts_ls = {
-					filetypes = { "typescript" }, -- or use "tsserver" for default name
+					filetypes = { "typescriptreact", "typescript" }, -- or use "tsserver" for default name
 				},
-				-- html = {
-				-- 	filetypes = { "html", "php", "typescriptreact", "javascriptreact" },
-				-- },
-				-- emmet_language_server = {
-				-- 	filetypes = { "html", "css", "scss", "less", "typescriptreact", "javascriptreact" },
-				-- },
 				lua_ls = {
 					filetypes = { "lua" },
 					on_attach = on_attach,
