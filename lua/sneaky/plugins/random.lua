@@ -7,6 +7,7 @@ return {
 	{
 		"gisketch/triforce.nvim",
 		dependencies = { "nvzone/volt" },
+		event = "VeryLazy",
 		config = function()
 			require("triforce").setup({
 				-- Optional: Add your configuration here
