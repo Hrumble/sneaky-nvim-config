@@ -3,12 +3,15 @@ local tab_size = 2
 vim.o.tabstop = tab_size
 vim.o.shiftwidth = tab_size
 vim.o.signcolumn='yes:2'
+
+vim.o.number = true
 vim.wo.relativenumber = true
+
 vim.opt.ignorecase = true -- makes it so that searching with "/" is case insensitive
 vim.opt.shadafile = "NONE" -- Disables shada files because they piss me off
 
 -- Comment if you don't have alacritty
-vim.g.terminal_emulator = "alacritty"
+vim.g.terminal_emulator = "wt"
 
 if vim.fn.has("win32") == 1 then
 	vim.opt.shell = "powershell"
