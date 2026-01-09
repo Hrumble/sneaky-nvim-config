@@ -10,6 +10,12 @@ vim.wo.relativenumber = true
 vim.opt.ignorecase = true -- makes it so that searching with "/" is case insensitive
 vim.opt.shadafile = "NONE" -- Disables shada files because they piss me off
 
+-- Line endings
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = "- ",
+}
+
 -- Comment if you don't have alacritty
 vim.g.terminal_emulator = "wt"
 
