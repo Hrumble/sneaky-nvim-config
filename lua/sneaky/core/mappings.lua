@@ -39,12 +39,6 @@ keymap.set("i", "<A-'>", "<C-k>'")
 keymap.set("i", "<A-`>", "<C-k>`")
 
 -- QOL mappings
-keymap.set("n", "<Leader>rp", function()
-	local reg = vim.fn.getcharstr()
-	local content = vim.fn.getreg(reg)
-
-	vim.cmd("normal! R" .. content)
-end)
 keymap.set("n", "<S-k>", function()
 	vim.lsp.buf.hover({
 		border = "rounded",
@@ -56,6 +50,7 @@ keymap.set("n", "<S-e>", function()
 		border = "rounded",
 	})
 end, { noremap = true }) -- Maps <S-e> to open hover diagnostic window with border
+
 keymap.set("n", "<Leader>rn", function()
 	vim.lsp.buf.rename()
 end, { desc = "renames a function or variable in the entire project" })      -- renames a function or variable in the entire project
