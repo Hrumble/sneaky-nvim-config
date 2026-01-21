@@ -22,6 +22,7 @@ return {
 					"basedpyright",
 					"rust_analyzer",
 					"ast_grep",
+					"clangd",
 					-- "html",
 					-- "emmet_language_server",
 					"cssls",

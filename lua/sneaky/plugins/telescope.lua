@@ -20,17 +20,18 @@ return {
 			telescope.setup({
 				defaults = {
 					borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
-					layout_stategy = "vertical",
+					layout_stategy = "horizontal",
 					mappings = {
 						i = {
-							["<A-s>"] = smart_split,
 							["<A-h>"] = actions.select_horizontal,
 							["<A-v>"] = actions.select_vertical,
 						},
 						n = {
-							["<A-s>"] = smart_split,
 							["<A-h>"] = actions.select_horizontal,
 							["<A-v>"] = actions.select_vertical,
+							["l"] = actions.add_selection,
+							["h"] = actions.remove_selection,
+							["c"] = actions.send_selected_to_qflist,
 						},
 					},
 				},

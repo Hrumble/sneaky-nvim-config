@@ -18,6 +18,12 @@ keymap.set("n", "<A-n>", "<cmd>tabnew<cr>")
 keymap.set("n", "<A-p>", "<cmd>Tabby jump_to_tab<cr>")
 keymap.set("n", "<A-c>", "<cmd>tabclose<cr>")
 
+-- QuickFix
+keymap.set("n", "<leader>ck", "<cmd>cprev<cr>")
+keymap.set("n", "<leader>cj", "<cmd>cnext<cr>")
+keymap.set("n", "<leader>co", "<cmd>copen<cr>")
+keymap.set("n", "<leader>cc", "<cmd>cclose<cr>")
+
 -- GROPER
 keymap.set("n", "<leader>gg", function() require("grope-nvim").live_grep() end)
 
