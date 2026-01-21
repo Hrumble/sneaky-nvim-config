@@ -45,6 +45,10 @@ keymap.set("i", "<A-'>", "<C-k>'")
 keymap.set("i", "<A-`>", "<C-k>`")
 
 -- QOL mappings
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection Down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection UP" })
+vim.keymap.set("v", "<", "<gv", { desc = "Unindent selection once" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent selection once" })
 keymap.set("n", "<S-k>", function()
 	vim.lsp.buf.hover({
 		border = "rounded",
