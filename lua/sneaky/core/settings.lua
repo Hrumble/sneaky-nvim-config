@@ -1,7 +1,8 @@
 -- Sets up the vim tab spaces, the default is fucking 8 jesus christ
-local tab_size = 2
-vim.o.tabstop = tab_size
-vim.o.shiftwidth = tab_size
+vim.opt.tabstop = 2
+vim.opt.expandtab = true
+vim.opt.softtabstop = -1
+vim.opt.shiftwidth = 0
 vim.o.signcolumn='yes:2'
 
 vim.o.number = true
