@@ -16,7 +16,7 @@ return {
 				ensure_installed = { "lua", "html", "css", "php", "python", "dart", "javascript", "typescript", "wgsl" },
 				sync_intall = false,
 				highlight = { enable = true, additional_vim_regex_highlighting = false },
-				indent = { enable = true }
+				indent = { enable = false, disable = { "dart" } }
 			})
 		end
 	},
