@@ -25,10 +25,9 @@
     end
 
     -- keymaps
-    vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {desc = "toggles a debugging breakpoint"})
-    vim.keymap.set("n", "<Leader>dn", dap.next, {desc = "DAP Next"})
-    vim.keymap.set("n", "<Leader>df", dap.step, {desc = "DAP Step"})
-    vim.keymap.set("n", "<Leader>dc", dap.continue, {desc = "DAP Continue"})
+    vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint(), {desc = "toggles a debugging breakpoint"})
+    vim.keymap.set("n", "<Leader>dc", dap.continue(), {desc = "DAP Continue"})
+    vim.keymap.set("n", "<Leader>df", dap.step_into(), {desc = "DAP Step"})
 
   ----------------------------------------------------------------------
   --                             Adapters                             --
