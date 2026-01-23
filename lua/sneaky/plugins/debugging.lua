@@ -31,7 +31,7 @@ return {
     dap.adapters.gdb = {
       type = "executable",
       command = "gdb",
-      args = {"--interpreter=dap", "--evel-command", "set print pretty on"}
+      args = {"--interpreter=dap", "--eval-command", "set print pretty on"}
     }
 		-- Python debug adapter (requires debugpy)
 		dap.adapters.python = function(cb, config)
