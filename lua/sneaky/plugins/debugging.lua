@@ -26,6 +26,7 @@
 
     -- keymaps
     vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, { desc = "toggles a debugging breakpoint" })
+    vim.keymap.set("n", "<Leader>dc", dap.continue, { desc = "DAP Continue, if no session is ongoing, creates a new one" })
     vim.keymap.set("n", "<Up>", dap.restart_frame, { desc = "DAP restart frame" })
     vim.keymap.set("n", "<Down>", dap.step_over, { desc = "DAP step over" })
     vim.keymap.set("n", "<Left>", dap.step_out, { desc = "DAP step out" })
