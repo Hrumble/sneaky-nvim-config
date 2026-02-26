@@ -105,7 +105,7 @@ keymap.set(
 	{ desc = "browse current file definitions with telescope" }
 ) -- browse current file definitions with telescope
 
-keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references fname_width=100<cr>", { desc = "goes to class or variable definition" }) -- goes to class or variable definition
+keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references fname_width=100<cr><Esc>", { desc = "goes to class or variable definition" }) -- goes to class or variable definition
 keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "live grep" })                                 -- live grep
 keymap.set(
 	"n",
