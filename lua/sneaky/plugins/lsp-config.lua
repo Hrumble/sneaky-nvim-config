@@ -28,6 +28,8 @@ return {
 					"cssls",
 					"omnisharp",
 				}, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
+        automatic_enable = false,
+        automatic_setup = false,
 			})
 		end,
 	},
