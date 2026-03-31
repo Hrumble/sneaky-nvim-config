@@ -18,15 +18,19 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls",
-					"basedpyright",
-					"rust_analyzer",
-					"ast_grep",
-					"clangd",
-					-- "html",
-					-- "emmet_language_server",
-					"cssls",
-					"omnisharp",
+          "lua_ls",
+          "basedpyright",
+          "rust_analyzer",
+          -- C
+          "clangd",
+          "omnisharp",
+
+          -- web
+          "html",
+          "ts_ls",
+          "emmet_language_server",
+          "cssls",
+          "tailwindcss",
 				}, -- Specify lsp that you want to make sure are installed here, those are lsp that mason has, and not just any.
         automatic_enable = false,
         automatic_setup = false,
@@ -41,19 +45,36 @@ return {
 		opts = {
 			-- set up each lsp here, you can specify filetypes, and other options.
 			servers = {
+        -- WEB
+        emmet_language_server = {
+          filetypes = { "html" }
+        },
+        cssls = {},
+        tailwindcss = {},
+        cssls = {
+          filetypes = { "css", "scss", "less" },
+        },
+        ts_ls = {
+          filetypes = { "typescriptreact", "typescript" }, -- or use "tsserver" for default name
+        },
+
+      
 				jdtls = {
 					cmd = { "jdtls" },
 					filetypes = { "java" }, -- Correct position for filetypes outside the java settings
 				},
-				gdscript = {
-					filetypes = { "gdscript" },
-					root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
-				},
-				gdshader_lsp = { -- https://github.com/GodOfAvacyn/gdshader-lsp
-					-- build from source and add to path
-					filetypes = { "gdshader" },
-					cmd = { "gdshader-lsp" },
-				},
+        -- GODOT
+        gdscript = {
+          filetypes = { "gdscript" },
+          root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+          cmd = vim.lsp.rpc.connect("127.0.0.1", 6005)
+        },
+        gdshader_lsp = { -- https://github.com/GodOfAvacyn/gdshader-lsp
+          -- build from source and add to path
+          filetypes = { "gdshader" },
+          cmd = { "gdshader-lsp" },
+        },
+
 				wgsl_analyzer = {
 					cmd = { vim.fn.expand("$HOME") .. "/.cargo/bin/wgsl-analyzer" },
 					filetypes = { "wgsl" },
@@ -61,12 +82,6 @@ return {
 				},
 				omnisharp = {
 					filetypes = { "cs", "vb" },
-				},
-				cssls = {
-					filetypes = { "css", "scss", "less" },
-				},
-				ts_ls = {
-					filetypes = { "typescriptreact", "typescript" }, -- or use "tsserver" for default name
 				},
 				lua_ls = {
 					filetypes = { "lua" },
@@ -122,10 +137,6 @@ return {
 							},
 						},
 					},
-				},
-				ast_grep = {
-					-- no official filetypes, define only if you know what you're using
-					-- filetypes = { "typescript", "javascript", "rust", "c", "lua", ... },
 				},
 			},
 		},
