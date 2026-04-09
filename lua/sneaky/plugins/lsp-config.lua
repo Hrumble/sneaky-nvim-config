@@ -23,6 +23,7 @@ return {
           "rust_analyzer",
           -- C
           "clangd",
+          -- C#
           "omnisharp",
 
           -- web
@@ -110,6 +111,11 @@ return {
 					settings = {
 						basedpyright = {
 							analysis = {
+                diagnosticSeverityOverrides = {
+                  reportArgumentType = "warning",
+                  reportAssignmentType = "warning",
+                  reportReturnType = "warning",
+                },
 								typeCheckingMode = "basic",
 								reportAny = false,
 								reportArgumentType = false,
