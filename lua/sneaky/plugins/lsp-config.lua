@@ -115,6 +115,7 @@ return {
                   reportArgumentType = "warning",
                   reportAssignmentType = "warning",
                   reportReturnType = "warning",
+                  reportAttributeAccessIssue = "warning",
                 },
 								typeCheckingMode = "basic",
 								reportAny = false,
