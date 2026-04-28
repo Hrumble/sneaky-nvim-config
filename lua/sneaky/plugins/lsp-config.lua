@@ -165,6 +165,9 @@ return {
             },
           },
         },
+        clangd = {
+          filetypes = { "c" },
+        }
       },
     },
     -- No idea what this does but don't touch it.
