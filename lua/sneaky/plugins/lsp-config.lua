@@ -108,41 +108,41 @@ return {
           filetypes = { "python" },
           settings = {
             basedpyright = {
-              typeCheckingMode = "off",
-              analysis = {
-                diagnosticSeverityOverrides = {
-                  -- Core correctness (keep these)
-                  reportGeneralTypeIssues = "error",
-                  reportUndefinedVariable = "error",
-                  reportUnboundVariable = "error",
-                  reportPossiblyUnboundVariable = "warning",
-                  -- reportAssignmentType = "error",
-                  reportReturnType = "error",
-                  -- reportArgumentType = "error",
-                  reportCallIssue = "error",
-                  -- reportIndexIssue = "error",
-                  -- reportOperatorIssue = "error",
-
-                  -- Optional safety (keep, but slightly softer)
-                  reportOptionalMemberAccess = "warning",
-                  reportOptionalSubscript = "warning",
-                  reportOptionalCall = "warning",
-
-                  -- Imports (keep visible but not blocking)
-                  reportMissingImports = "error",
-
-                  -- Code quality noise (usually disable)
-                  reportUnusedImport = "warning",
-                  reportUnusedVariable = "warning",
-                  reportDuplicateImport = "warning",
-
-                  reportUnusedExpression = "warning",
-                  reportUnusedCallResult = "warning",
-
-                  -- Safety edge cases
-                  reportUninitializedInstanceVariable = "warning",
-                },
-              },
+              typeCheckingMode = "basic",
+              -- analysis = {
+              --   diagnosticSeverityOverrides = {
+              --     -- Core correctness (keep these)
+              --     reportGeneralTypeIssues = "error",
+              --     reportUndefinedVariable = "error",
+              --     reportUnboundVariable = "error",
+              --     reportPossiblyUnboundVariable = "warning",
+              --     -- reportAssignmentType = "error",
+              --     reportReturnType = "error",
+              --     -- reportArgumentType = "error",
+              --     reportCallIssue = "error",
+              --     -- reportIndexIssue = "error",
+              --     -- reportOperatorIssue = "error",
+              --
+              --     -- Optional safety (keep, but slightly softer)
+              --     reportOptionalMemberAccess = "warning",
+              --     reportOptionalSubscript = "warning",
+              --     reportOptionalCall = "warning",
+              --
+              --     -- Imports (keep visible but not blocking)
+              --     reportMissingImports = "error",
+              --
+              --     -- Code quality noise (usually disable)
+              --     reportUnusedImport = "warning",
+              --     reportUnusedVariable = "warning",
+              --     reportDuplicateImport = "warning",
+              --
+              --     reportUnusedExpression = "warning",
+              --     reportUnusedCallResult = "warning",
+              --
+              --     -- Safety edge cases
+              --     reportUninitializedInstanceVariable = "warning",
+              --   },
+              -- },
             }
           },
         },
