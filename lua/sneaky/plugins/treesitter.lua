@@ -31,7 +31,7 @@ return {
       ts.install(ensure_installed)
 
       vim.api.nvim_create_autocmd('FileType', {
-        pattern = { '<filetype>' },
+        pattern = ensure_installed,
         callback = function()
           vim.treesitter.start()
         end,
