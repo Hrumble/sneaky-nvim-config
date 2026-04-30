@@ -55,7 +55,7 @@ return {
           filetypes = { "css", "scss", "less" },
         },
         ts_ls = {
-          filetypes = { "typescriptreact", "typescript" }, -- or use "tsserver" for default name
+          filetypes = { "typescriptreact", "typescript", "javascript" }, -- or use "tsserver" for default name
         },
 
         jdtls = {
