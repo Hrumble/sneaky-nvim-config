@@ -2,22 +2,39 @@ return {
 	{
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
+    branch = 'main',
     build = ":TSUpdate",
     config = function()
+      -- Do not forget to install treesitter-cli as of nvim 0.12. Without it, nvim-ts will not work
       local ts = require("nvim-treesitter")
       local installs = require("nvim-treesitter.install")
       -- following line is real important and I struggled for a bit, on windows had to install msys2 which came with mingw64 used to run and compile c based shit
-      -- turns out gcc wasn't cutting it for some reason, but clang did, so if you get errors with treesitter on windows, make sure to download msys2 and add it's .../mingw64/bin folder to path.
+      -- turns out gcc wasn't cutting it for some reason, but clang did, so if you get errors with treesitter on windows.
+      -- make sure to download msys2 and add it's .../mingw64/bin folder to path.
       -- pain in the ass windows bs
       if vim.fn.has('win32') == 1 then
         installs.compilers = { 'clang' }
       end
+      local ensure_installed = {
+        "lua",
+        "html",
+        "css",
+        "php",
+        "python",
+        "dart",
+        "javascript",
+        "typescript",
+        "wgsl",
+        "gdscript"
+      }
 
-      ts.setup({
-        ensure_installed = { "lua", "html", "css", "php", "python", "dart", "javascript", "typescript", "wgsl" },
-        sync_intall = false,
-        highlight = { enable = true, additional_vim_regex_highlighting = false },
-        indent = { enable = false, disable = { "dart" } }
+      ts.install(ensure_installed)
+
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { '<filetype>' },
+        callback = function()
+          vim.treesitter.start()
+        end,
       })
     end
   },

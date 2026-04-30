@@ -18,7 +18,7 @@ vim.opt.listchars = {
 }
 
 -- Comment if you don't have alacritty
-vim.g.terminal_emulator = "wt"
+vim.g.terminal_emulator = "alacritty"
 
 if vim.fn.has("win32") == 1 then
 	vim.opt.shell = "powershell"
