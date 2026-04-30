@@ -2,6 +2,7 @@ local keymap = vim.keymap
 -- Sets leader key
 keymap.set({ "n", "v" }, "<Space>", "<Nop>")
 vim.g.mapleader = " "
+local second_leader = "<C-Space>"
 
 -- General Mappings
 keymap.set("i", "jj", "<Esc>")
@@ -24,8 +25,11 @@ keymap.set("n", "<leader>cj", "<cmd>cnext<cr>")
 keymap.set("n", "<leader>co", "<cmd>copen<cr>")
 keymap.set("n", "<leader>cc", "<cmd>cclose<cr>")
 
+-- Git
+keymap.set("n", "<leader>dv", "<cmd>DiffviewOpen<cr>", { desc = "Opens the git diff view" })
+
 -- GROPER
-keymap.set("n", "<leader>gg", function() require("grope-nvim").live_grep() end)
+keymap.set("n", "<leader>gg", function() require("grope-nvim").live_grep() end, { desc = "Opens the grope interface for the current buffer" })
 
 -- maps code actions
 keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { noremap = true, silent = true })
@@ -49,12 +53,12 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection Down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection UP" })
 vim.keymap.set("v", "<", "<gv", { desc = "Unindent selection once" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent selection once" })
+
 keymap.set("n", "<S-k>", function()
 	vim.lsp.buf.hover({
 		border = "rounded",
 	})
 end, { noremap = true }) -- Remaps <S-k> to give rounded borders
-
 keymap.set("n", "<S-e>", function()
 	vim.diagnostic.open_float({
 		border = "rounded",
@@ -124,9 +128,6 @@ keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>", { desc = "Switches to previous o
 -- Trouble
 keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>")              -- Opens trouble
 keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only
-
--- LazyGit
-keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 
 -- Mini
 keymap.set("n", "<BS>", function() MiniFiles.open(nil, true) end)
