@@ -1,7 +1,6 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		cmd = { "Telescope colorscheme", "Telescope find_files", "Telescope live_grep" },
 		config = function()
