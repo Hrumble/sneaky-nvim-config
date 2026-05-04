@@ -47,3 +47,5 @@ vim.api.nvim_create_autocmd({"FocusGained", "BufEnter"}, {
 		end
 	end
 })
+
+vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "Show LSP Info" })
