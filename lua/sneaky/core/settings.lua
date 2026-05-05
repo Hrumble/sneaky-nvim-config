@@ -20,6 +20,9 @@ vim.opt.listchars = {
 -- Comment if you don't have alacritty
 vim.g.terminal_emulator = "alacritty"
 
+-- Sets c to be the default filetype for .h files
+vim.g.c_syntax_for_h = 'c'
+
 if vim.fn.has("win32") == 1 then
 	vim.opt.shell = "powershell"
 	-- Don't mind the code here copied from SO for PS to work
