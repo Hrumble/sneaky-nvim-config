@@ -166,7 +166,7 @@ return {
           },
         },
         clangd = {
-          filetypes = { "c" },
+          filetypes = { "c", "h" },
         }
       },
     },
