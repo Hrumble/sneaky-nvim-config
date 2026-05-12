@@ -106,43 +106,16 @@ return {
         },
         basedpyright = {
           filetypes = { "python" },
+          flags = {
+            debounce_text_changes = 250
+          },
           settings = {
             basedpyright = {
               typeCheckingMode = "basic",
-              -- analysis = {
-              --   diagnosticSeverityOverrides = {
-              --     -- Core correctness (keep these)
-              --     reportGeneralTypeIssues = "error",
-              --     reportUndefinedVariable = "error",
-              --     reportUnboundVariable = "error",
-              --     reportPossiblyUnboundVariable = "warning",
-              --     -- reportAssignmentType = "error",
-              --     reportReturnType = "error",
-              --     -- reportArgumentType = "error",
-              --     reportCallIssue = "error",
-              --     -- reportIndexIssue = "error",
-              --     -- reportOperatorIssue = "error",
-              --
-              --     -- Optional safety (keep, but slightly softer)
-              --     reportOptionalMemberAccess = "warning",
-              --     reportOptionalSubscript = "warning",
-              --     reportOptionalCall = "warning",
-              --
-              --     -- Imports (keep visible but not blocking)
-              --     reportMissingImports = "error",
-              --
-              --     -- Code quality noise (usually disable)
-              --     reportUnusedImport = "warning",
-              --     reportUnusedVariable = "warning",
-              --     reportDuplicateImport = "warning",
-              --
-              --     reportUnusedExpression = "warning",
-              --     reportUnusedCallResult = "warning",
-              --
-              --     -- Safety edge cases
-              --     reportUninitializedInstanceVariable = "warning",
-              --   },
-              -- },
+              analysis = {
+                diagnosticMode = "openFilesOnly",
+                maxWorkers = 2,
+              }
             }
           },
         },
@@ -179,7 +152,6 @@ return {
 
         vim.lsp.config[server] = config
         vim.lsp.enable(server)
-        -- lspconfig[server].setup(config)
       end
     end,
   },
