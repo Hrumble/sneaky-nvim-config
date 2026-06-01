@@ -1,35 +1,6 @@
 return {
-	{
-		"folke/tokyonight.nvim",
-		name = "tokyonight",
-		priority = 1000,
-		config = function()
-			require("tokyonight").setup({
-				transparency = true,
-			})
-		end,
-	},
-	{
-		"morhetz/gruvbox",
-		name = "gruvbox",
-		priority = 1000,
-	},
-	{
-		"catppuccin/nvim",
-		lazy = false,
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require('catppuccin').setup({
-				transparent_background = true,
-				integrations = {
-					cmp = true,
-					treesitter = true,
-					nvimtree = true,
-				}
-			})
-		end
-	},
+	-- Only kanagawa is loaded eagerly (it's the active theme).
+	-- Others are lazy so they don't cost startup time; switch with :colorscheme <name>
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
@@ -46,10 +17,8 @@ return {
 					}
 				},
 				overrides = function(colors)
-					local theme = colors.theme
 					return {
 						Function = { bold = true },
-
 						NormalFloat = { bg = "none" },
 						FloatBorder = { bg = "none" },
 						FloatTitle = { bg = "none" }
@@ -58,9 +27,17 @@ return {
 			})
 		end
 	},
+	{ "folke/tokyonight.nvim", lazy = true },
+	{ "morhetz/gruvbox",       lazy = true },
 	{
-		"nyoom-engineering/oxocarbon.nvim",
-		lazy = false,
-		priority = 1000,
-	}
+		"catppuccin/nvim",
+		name = "catppuccin",
+		lazy = true,
+		config = function()
+			require('catppuccin').setup({
+				transparent_background = true,
+			})
+		end
+	},
+	{ "nyoom-engineering/oxocarbon.nvim", lazy = true },
 }

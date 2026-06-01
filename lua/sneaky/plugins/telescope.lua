@@ -5,21 +5,12 @@ return {
 		cmd = { "Telescope colorscheme", "Telescope find_files", "Telescope live_grep" },
 		config = function()
 			local telescope = require("telescope")
-			local action_state = require("telescope.actions.state")
 			local actions = require("telescope.actions")
-
-			local smart_split = function()
-				local smart = require("smartsplit.smart-split")
-				local selection = action_state.get_selected_entry()
-
-				smart.smart_split()
-				vim.cmd("edit " .. selection.path)
-			end
 
 			telescope.setup({
 				defaults = {
 					borderchars = { "═", "║", "═", "║", "╔", "╗", "╝", "╚" },
-					layout_stategy = "horizontal",
+					layout_strategy = "horizontal",
 					mappings = {
 						i = {
 							["<A-h>"] = actions.select_horizontal,

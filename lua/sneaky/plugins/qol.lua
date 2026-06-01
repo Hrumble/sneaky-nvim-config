@@ -43,12 +43,6 @@ return {
 	},
 	-- LSP Diagnostics
 	{
-		'Hrumble/groper-nvim',
-		config = function()
-			require("grope-nvim").setup({})
-		end
-	},
-	{
 		'folke/trouble.nvim',
 		config = function()
 			require('trouble').setup({})
@@ -64,32 +58,17 @@ return {
 			expand = {
 				"function"
 			}
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
 		}
 	},
-	-- Nice tab manager, ACTUAL TABS NOT FUCKING BUFFERS
-	{
-		'nanozuki/tabby.nvim',
-		config = function()
-			require('tabby').setup({})
-		end
-	},
-	-- Nicer TS based folds
+	-- TS-based smart folding (auto-folds comments and imports)
 	{
 		'chrisgrieser/nvim-origami',
 		event = "VeryLazy",
-		opts = {},
-
 		config = function()
 			vim.o.foldlevel = 99
 			vim.o.foldlevelstart = 99
-
 			require("origami").setup({
-				foldKeymaps = {
-					setup = false
-				},
+				foldKeymaps = { setup = false },
 				autoFold = {
 					enabled = true,
 					kinds = { "comment", "imports" }
@@ -97,31 +76,11 @@ return {
 			})
 		end
 	},
-	-- Comments on code
+	-- Nice tab manager, ACTUAL TABS NOT FUCKING BUFFERS
 	{
-		"jameswolensky/marker-groups.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",      -- Required
-			"nvim-telescope/telescope.nvim", -- Optional: Telescope picker
-			-- mini.pick is part of mini.nvim; this plugin vendors mini.nvim for tests,
-			-- but you can also install mini.nvim explicitly to use mini.pick system-wide
-			-- "nvim-mini/mini.nvim",
-		},
+		'nanozuki/tabby.nvim',
 		config = function()
-			require("marker-groups").setup({
-				-- Default picker is 'vim' (built-in vim.ui)
-				-- Accepted values: 'vim' | 'snacks' | 'fzf-lua' | 'mini.pick' | 'telescope'
-				picker = 'telescope',
-			})
-		end,
-	},
-	{
-		's1n7ax/nvim-comment-frame',
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter"
-		},
-		config = function()
-			require("nvim-comment-frame").setup({})
+			require('tabby').setup({})
 		end
 	},
 }

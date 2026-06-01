@@ -1,18 +1,19 @@
 local keymap = vim.keymap
--- Sets leader key
+
+-- Leader key
 keymap.set({ "n", "v" }, "<Space>", "<Nop>")
 vim.g.mapleader = " "
-local second_leader = "<C-Space>"
 
--- General Mappings
+-- General
 keymap.set("i", "jj", "<Esc>")
--- Sets split screen movement to use Alt
+
+-- Split navigation with Alt
 keymap.set({ "n", "t" }, "<A-j>", "<C-w>j")
 keymap.set({ "n", "t" }, "<A-k>", "<C-w>k")
 keymap.set({ "n", "t" }, "<A-h>", "<C-w>h")
 keymap.set({ "n", "t" }, "<A-l>", "<C-w>l")
 
--- Tabby
+-- Tabs (tabby.nvim)
 keymap.set("n", "<leader>tl", "<cmd>tabnext<cr>")
 keymap.set("n", "<leader>th", "<cmd>tabp<cr>")
 keymap.set("n", "<A-n>", "<cmd>tabnew<cr>")
@@ -26,125 +27,85 @@ keymap.set("n", "<leader>co", "<cmd>copen<cr>")
 keymap.set("n", "<leader>cc", "<cmd>cclose<cr>")
 
 -- Git
-keymap.set("n", "<leader>dv", "<cmd>DiffviewOpen<cr>", { desc = "Opens the git diff view" })
+keymap.set("n", "<leader>dv", "<cmd>DiffviewOpen<cr>", { desc = "Open git diff view" })
 
--- GROPER
-keymap.set("n", "<leader>gg", function() require("grope-nvim").live_grep() end, { desc = "Opens the grope interface for the current buffer" })
-
--- maps code actions
+-- LSP
 keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { noremap = true, silent = true })
-
--- maps to reload nvim conf
 keymap.set("n", "<Leader>nrr", "<cmd>source<cr>")
 
--- Random
-keymap.set("n", "<Leader>fmlg", "<cmd>CellularAutomaton game_of_life<cr>")
-keymap.set("n", "<Leader>fmlm", "<cmd>CellularAutomaton make_it_rain<cr>")
+-- Twilight
+keymap.set("n", "<Leader>zz", "<cmd>Twilight<cr>", { desc = "Toggle twilight focus" })
 
--- Awareness
-keymap.set("n", "<Leader>zz", "<cmd>Twilight<cr>", { desc = "Toggles twilight to focus on current edited scope" })
-
--- Accents
+-- Accent shortcuts
 keymap.set("i", "<A-'>", "<C-k>'")
 keymap.set("i", "<A-`>", "<C-k>`")
 
--- QOL mappings
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection Down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection UP" })
-vim.keymap.set("v", "<", "<gv", { desc = "Unindent selection once" })
-vim.keymap.set("v", ">", ">gv", { desc = "Indent selection once" })
+-- Visual QoL
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("v", "<", "<gv", { desc = "Unindent selection" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent selection" })
 
+-- Hover / diagnostics with borders
 keymap.set("n", "<S-k>", function()
-	vim.lsp.buf.hover({
-		border = "rounded",
-	})
-end, { noremap = true }) -- Remaps <S-k> to give rounded borders
+	vim.lsp.buf.hover({ border = "rounded" })
+end, { noremap = true })
 keymap.set("n", "<S-e>", function()
-	vim.diagnostic.open_float({
-		border = "rounded",
-	})
-end, { noremap = true }) -- Maps <S-e> to open hover diagnostic window with border
+	vim.diagnostic.open_float({ border = "rounded" })
+end, { noremap = true })
 
 keymap.set("n", "<Leader>rn", function()
 	vim.lsp.buf.rename()
-end, { desc = "renames a function or variable in the entire project" })      -- renames a function or variable in the entire project
-keymap.set("n", "<S-u>", "<cmd>redo<cr>", { desc = "shift-u to redo undo" }) -- shift-u to redo undo
+end, { desc = "Rename symbol across project" })
+
+keymap.set("n", "<S-u>", "<cmd>redo<cr>", { desc = "Redo" })
+
 -- Aerial
-keymap.set("n", "<Leader>a", "<cmd>AerialToggle<cr>", { desc = "Toggles the aerial window" })
+keymap.set("n", "<Leader>a", "<cmd>AerialToggle<cr>", { desc = "Toggle aerial" })
 keymap.set("n", "}", function()
 	local aerial = require("aerial")
-	if aerial.is_open then
-		aerial.next()
-	end
-end, { desc = "Aerial next function" })
+	if aerial.is_open then aerial.next() end
+end, { desc = "Aerial next" })
 keymap.set("n", "{", function()
 	local aerial = require("aerial")
-	if aerial.is_open then
-		aerial.prev()
-	end
-end, { desc = "Aerial next function" })
+	if aerial.is_open then aerial.prev() end
+end, { desc = "Aerial prev" })
 
 -- Telescope
-keymap.set(
-	"n",
-	"<Leader>ft",
-	"<cmd>Telescope colorscheme<cr>",
-	{ desc = "browse available colorschemes with telescope" }
-)                                                                                                        -- browse available colorschemes with telescope
-keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { desc = "browse files with telescope" }) -- browse files with telescope
-keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>", {
-	desc = "Opens a list of all available commands to the user",
-})                                       -- Opens a list of all available commands to the user
-keymap.set("n", "<Leader>fb", function() -- Opens a list of all available commands to the user
+keymap.set("n", "<Leader>ft", "<cmd>Telescope colorscheme<cr>", { desc = "Browse colorschemes" })
+keymap.set("n", "<Leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
+keymap.set("n", "<Leader>fc", "<cmd>Telescope commands<cr>", { desc = "Browse commands" })
+keymap.set("n", "<Leader>fb", function()
 	require("telescope.builtin").buffers({
 		sort_mru = true,
 		show_all_buffers = false,
 		ignore_current_buffer = true,
 	})
 end)
-keymap.set(
-	"n",
-	"<Leader>fs",
-	"<cmd>Telescope lsp_document_symbols<cr>",
-	{ desc = "browse current file definitions with telescope" }
-) -- browse current file definitions with telescope
-
-keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references fname_width=100<cr><Esc>", { desc = "goes to class or variable definition" }) -- goes to class or variable definition
-keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "live grep" })                                 -- live grep
-keymap.set(
-	"n",
-	"<Leader>gd",
-	"<cmd>Telescope lsp_definitions<cr>",
-	{ desc = "goes to class or variable definition of word under cursor" }
-) -- goes to class or variable definition of word under cursor
-keymap.set(
-	"n",
-	"<Leader>gtd",
-	"<cmd>Telescope lsp_type_definitions<cr>",
-	{ desc = "goes to the definition of the *TYPE* of the word under cursor" }
-)                                                                                                -- goes to the definition of the *TYPE* of the word under cursor
-keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>", { desc = "Switches to previous opened buffer" }) -- Switches to previous opened buffer
+keymap.set("n", "<Leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Document symbols" })
+keymap.set("n", "<Leader>fr", "<cmd>Telescope lsp_references fname_width=100<cr><Esc>", { desc = "LSP references" })
+keymap.set("n", "<Leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+keymap.set("n", "<Leader>gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition" })
+keymap.set("n", "<Leader>gtd", "<cmd>Telescope lsp_type_definitions<cr>", { desc = "Go to type definition" })
+keymap.set("n", "<Leader><Tab>", "<cmd>b#<cr>", { desc = "Switch to previous buffer" })
 
 -- Trouble
-keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>")              -- Opens trouble
-keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>") -- Opens trouble for current buffer only
+keymap.set("n", "<Leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>")
+keymap.set("n", "<Leader>xc", "<cmd>Trouble diagnostics toggle focus=true filter.buf=0<cr>")
 
--- Mini
+-- Mini files
 keymap.set("n", "<BS>", function() MiniFiles.open(nil, true) end)
 keymap.set("n", "|", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end)
 
--- nvim dap
--- See lua/sneaky/plugins/debugging.lua
-
--- Term keymaps
-vim.keymap.set({ "t", "n" }, "<A-t>", "<cmd>ToggleTermToggleAll<cr>") -- Opens or closes all available or opened terminals
+-- Terminals (toggleterm)
+vim.keymap.set({ "t", "n" }, "<A-t>", "<cmd>ToggleTermToggleAll<cr>")
 vim.keymap.set({ "t", "n" }, "<A-1>", "<cmd>1ToggleTerm direction=horizontal size=15 name=1<cr>")
 vim.keymap.set({ "t", "n" }, "<A-2>", "<cmd>2ToggleTerm direction=horizontal size=15 name=2<cr>")
 vim.keymap.set({ "t", "n" }, "<A-3>", "<cmd>3ToggleTerm direction=horizontal size=15 name=3<cr>")
 vim.keymap.set({ "t", "n" }, "<A-4>", "<cmd>4ToggleTerm direction=horizontal size=15 name=4<cr>")
 vim.keymap.set({ "t", "n" }, "<A-5>", "<cmd>5ToggleTerm direction=horizontal size=15 name=5<cr>")
 vim.keymap.set({ "t", "n" }, "<A-6>", "<cmd>6ToggleTerm direction=horizontal size=15 name=6<cr>")
-vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts) -- Marks <esc> to leave insert mode inside terminal
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])
 
--- Sets y to copy to clipboard
+-- Clipboard
 vim.cmd("set clipboard=unnamedplus")
