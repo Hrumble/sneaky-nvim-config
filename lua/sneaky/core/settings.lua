@@ -44,4 +44,14 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	end
 })
 
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+  pattern = "*.md",
+  callback = function()
+    vim.opt_local.tw = 120
+    vim.opt_local.linebreak = true
+    vim.keymap.set("n", "j", "gj", { buffer = true })
+    vim.keymap.set("n", "k", "gk", { buffer = true })
+  end
+})
+
 vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "Show LSP Info" })
