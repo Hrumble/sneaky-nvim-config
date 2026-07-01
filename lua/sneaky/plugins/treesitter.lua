@@ -1,10 +1,8 @@
--- Using master branch (not main) to avoid the tree-sitter-cli requirement.
--- master compiles parsers with a C compiler (clang via msys2) which works without admin.
 return {
   {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
-    branch = 'master',
+    branch = 'main',
     build = ":TSUpdate",
     config = function()
       -- On Windows: needs clang from msys2 (...\msys2\mingw64\bin on PATH)
@@ -13,7 +11,7 @@ return {
         require("nvim-treesitter.install").compilers = { 'clang' }
       end
 
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter.config").setup({
         ensure_installed = {
           "lua",
           "html",
