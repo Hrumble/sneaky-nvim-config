@@ -60,22 +60,6 @@ return {
 			}
 		}
 	},
-	-- TS-based smart folding (auto-folds comments and imports)
-	{
-		'chrisgrieser/nvim-origami',
-		event = "VeryLazy",
-		config = function()
-			vim.o.foldlevel = 99
-			vim.o.foldlevelstart = 99
-			require("origami").setup({
-				foldKeymaps = { setup = false },
-				autoFold = {
-					enabled = true,
-					kinds = { "comment", "imports" }
-				}
-			})
-		end
-	},
 	-- Nice tab manager, ACTUAL TABS NOT FUCKING BUFFERS
 	{
 		'nanozuki/tabby.nvim',
