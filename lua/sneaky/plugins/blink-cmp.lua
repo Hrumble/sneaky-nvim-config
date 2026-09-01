@@ -80,14 +80,14 @@ return {
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			default = { "lsp", "path" },
-			providers = {
-				cmdline = {
-					-- ignores cmdline completions when executing shell commands
-					enabled = function()
-						return false
-					end,
-				},
-			},
+			-- providers = {
+			-- 	cmdline = {
+			-- 		-- ignores cmdline completions when executing shell commands
+			-- 		enabled = function()
+			-- 			return false
+			-- 		end,
+			-- 	},
+			-- },
 		},
 	},
 	opts_extend = { "sources.default" },
