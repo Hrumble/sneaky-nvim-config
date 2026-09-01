@@ -139,7 +139,7 @@ return {
           },
         },
         clangd = {
-          filetypes = { "c", "h" },
+          filetypes = { "c", "h", "cpp", "hpp" },
         }
       },
     },
