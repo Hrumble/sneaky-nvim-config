@@ -1,7 +1,8 @@
-vim.opt.tabstop = 2
-vim.opt.expandtab = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.tabstop = 4
 vim.opt.softtabstop = -1
-vim.opt.shiftwidth = 0
+vim.opt.shiftwidth = 4
 vim.o.signcolumn = 'yes:2'
 
 vim.o.number = true
@@ -12,6 +13,7 @@ vim.opt.shadafile = "NONE"
 
 -- Show tab characters
 vim.opt.list = true
+vim.opt.smarttab = true
 vim.opt.listchars = {
   tab = "- ",
 }
