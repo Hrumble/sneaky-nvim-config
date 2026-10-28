@@ -32,13 +32,6 @@ if vim.fn.has("win32") == 1 then
 	vim.o.shellredir = "| Out-File -Encoding UTF8 %s"
 end
 
--- Equalise windows when a new buffer opens
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	callback = function()
-		vim.cmd("wincmd=")
-	end
-})
-
 -- Reload file when focus returns
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	callback = function()
